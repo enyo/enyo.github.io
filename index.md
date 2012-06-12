@@ -7,8 +7,6 @@ title: Matias Meno
 
 ## Projects
 
-- http://www.formwatcher.org
-- http://www.opentip.org
-- http://www.thisisginga.com
-
-
+- [Opentip](http://www.opentip.org)
+- [Formwatcher](http://www.formwatcher.org)
+- [GIN GA](http://www.thisisginga.com)
