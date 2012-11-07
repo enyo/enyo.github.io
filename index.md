@@ -1,5 +1,5 @@
 ---
-template: default
+layout: default
 title: Matias Meno
 ---
 # mmeno.com
@@ -10,3 +10,10 @@ title: Matias Meno
 - [Opentip](http://www.opentip.org)
 - [Formwatcher](http://www.formwatcher.org)
 - [GIN GA](http://www.thisisginga.com)
+
+
+{% comment %}
+{% for post in site.posts %}
+[{{ post.title }}]({{post.url}})
+{% endfor %}
+{% endcomment %}

@@ -4,6 +4,15 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
+
+
 {{ content }}
+
+<h2>Categories</h2>
+
+{% for category in page.categories %}
+{{ category }}
+{% endfor %}
+
 </body>
 </html>
