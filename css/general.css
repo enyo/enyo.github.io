@@ -90,13 +90,15 @@ a img {
   border: none;
 }
 body {
-  font-family: arial, tahoma, sans-serif;
+  font-family: "Open Sans", arial, tahoma, sans-serif;
   font-size: 14px;
+  background: url("../images/background.png") repeat;
+  line-height: 180%;
 }
 h1,
 h2,
 h3 {
-  margin: 14px 0;
+  margin: 80px 0 14px 0;
 }
 h1 {
   font-size: 2em;
@@ -107,7 +109,41 @@ h2 {
 h3 {
   font-size: 1.4em;
 }
+p {
+  margin: 15px 0;
+}
+#header {
+  background: url("../images/tile.png") repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  bottom: 0;
+}
 #main {
-  width: 978px;
-  margin: 20px auto;
+  padding: 50px 30px 100px 310px;
+}
+#main h1 {
+  display: inline-block;
+  font-family: "ChunkFive", impact, sans-serif;
+  font-size: 60px;
+  color: #e8ecc5;
+  background: #171337;
+  line-height: 64px;
+}
+#main h1:first-of-type {
+  margin-top: 0;
+}
+#main .date {
+  color: #e05822;
+  font-family: "ChunkFive", impact, sans-serif;
+  font-size: 30px;
+}
+#main .post {
+  margin: 80px 30px 100px 30px;
+  width: 600px;
+}
+#main #disqus {
+  width: 630px;
+  margin-top: 150px;
 }
