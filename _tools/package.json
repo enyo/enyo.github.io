@@ -1,0 +1,7 @@
+{
+  "name": "Stylesheets",
+  "devDependencies": {
+    "nib": "*",
+    "stylus": "*"
+  }
+}
