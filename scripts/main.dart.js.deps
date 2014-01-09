@@ -1,10 +1,11 @@
-file:///Applications/dart/dart-sdk/lib/_collection_dev/arrays.dart
 file:///Applications/dart/dart-sdk/lib/_collection_dev/collection_dev.dart
 file:///Applications/dart/dart-sdk/lib/_collection_dev/iterable.dart
 file:///Applications/dart/dart-sdk/lib/_collection_dev/list.dart
+file:///Applications/dart/dart-sdk/lib/_collection_dev/lists.dart
 file:///Applications/dart/dart-sdk/lib/_collection_dev/print.dart
 file:///Applications/dart/dart-sdk/lib/_collection_dev/sort.dart
 file:///Applications/dart/dart-sdk/lib/_collection_dev/symbol.dart
+file:///Applications/dart/dart-sdk/lib/_internal/lib/annotations.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/async_patch.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/collection_dev_patch.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/collection_patch.dart
@@ -19,6 +20,7 @@ file:///Applications/dart/dart-sdk/lib/_internal/lib/js_array.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/js_helper.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/js_names.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/js_number.dart
+file:///Applications/dart/dart-sdk/lib/_internal/lib/js_primitives.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/js_rti.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/js_string.dart
 file:///Applications/dart/dart-sdk/lib/_internal/lib/math_patch.dart
@@ -118,4 +120,4 @@ file:///Applications/dart/dart-sdk/lib/typed_data/dart2js/typed_data_dart2js.dar
 file:///Applications/dart/dart-sdk/lib/web_audio/dart2js/web_audio_dart2js.dart
 file:///Applications/dart/dart-sdk/lib/web_gl/dart2js/web_gl_dart2js.dart
 file:///Applications/dart/dart-sdk/lib/web_sql/dart2js/web_sql_dart2js.dart
-file:///Volumes/CaseFS/colorglare/scripts/main.dart
+file:///Volumes/CaseFS/git/colorglare/scripts/main.dart
