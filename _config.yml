@@ -1,0 +1,6 @@
+name: COLORGLARE
+markdown: redcarpet
+pygments: true
+exclude:
+  - build.dart
+  - pubspec.*

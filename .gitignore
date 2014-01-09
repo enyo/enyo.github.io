@@ -1,3 +1,5 @@
 .*
 !.gitignore
 _site
+packages/*
+!packages/browser/

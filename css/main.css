@@ -1,0 +1,98 @@
+/* Global Reset */
+
+@font-face {font-family: 'BrandonGrotesque-Thin';src: url('/fonts/Brandon_thin.otf');}
+
+
+* {
+  margin: 0;
+  paddin 0;
+}
+
+html, body { height: 100%; }
+
+html {
+  font-size: 14px;
+}
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+
+
+/**
+ * The nice header
+ */
+
+h1 {
+  font-family: "BrandonGrotesque-Thin", Arial, sans-serif;
+  font-size: 4.2em;
+  font-weight: 100;
+  letter-spacing: 0.3em;
+}
+
+
+
+header {
+  background: url("/images/sea_cover.jpg") no-repeat center;
+
+  background-size: cover;
+  position: relative;
+  -webkit-perspective: 600;
+  -webkit-perspective-origin: 50%;
+}
+
+header h1 {
+  color: white;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-size: 80px;
+  line-height: 2;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  letter-spacing: 0.9em;
+  transition: letter-spacing 2s ease-out, -webkit-transform 1s ease-out;
+  
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotatex(40deg);
+}
+header h1 br {
+  display: none;
+}
+
+header h1.relaxed {
+  letter-spacing: 1em;
+  -webkit-transform: rotatex(0deg);
+}
+
+@media (max-width: 1450px) {
+  header h1 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 35px;
+  }
+  header h1 br {
+    display: block;
+  }
+}
+
+
+
+#main { display: none; }
