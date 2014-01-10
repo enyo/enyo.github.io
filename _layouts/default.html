@@ -15,13 +15,22 @@
 <script type="application/dart" src="scripts/main.dart"></script>
 <script src="scripts/dart.js"></script>
 
+<body id="site-{{ page.type }}">
 
-<header data-image="/images/sea_cover.jpg">
-  <h1>COLOR<br>GLARE</h1>
-</header>
+  <header data-image="/images/sea_cover.jpg">
+    <h1><a href="/">COLOR<br>GLARE</a></h1>
+  </header>
 
-<section id="main">
+  <section id="main">
 
-  {{ content }}
+    {{ content }}
 
-</section>
+  </section>
+
+
+  <footer>
+    <p>Site created by Matias Meno.</p>
+    <p>All images photographed and copyright by Matias Meno.</p>
+  </footer>
+
+</body>

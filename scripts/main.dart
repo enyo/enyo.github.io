@@ -13,6 +13,7 @@ initializeHeader(String backgroundImage) {
   headerElement.classes.add("image-loaded");
   Element h1 = headerElement.querySelector("h1");
   h1.classes.add("relaxed");
+  document.body.classes.add("header-loaded");
 }
 
 updateHeaderSize() {

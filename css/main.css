@@ -207,7 +207,9 @@ body {
   height: 100%;
 }
 html {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
 }
 *,
 *:before,
@@ -216,22 +218,54 @@ html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+body {
+  background: url("../images/background_tile.png") repeat center;
+}
 /**
- * The nice header
+ * Generic elements
  */
 h1 {
-  font-family: "BrandonGrotesque-Thin", Arial, sans-serif;
-  font-size: 4.2em;
+  font-family: "Brandon Grotesque", Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1.4;
   font-weight: 100;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
-header {
+p {
+  line-height: 1.8;
+  margin: 2em 0;
+}
+/**
+ * Basic layout
+ */
+#main {
+  padding-top: 5em;
+  padding-bottom: 16em;
+}
+body > header h1 br {
+  display: none;
+}
+body > header {
+  background: #f34a53;
+  color: #fff;
+  text-align: center;
+  padding: 2em 0;
+}
+body > header h1 {
+  font-size: 2.4em;
+}
+body > header a {
+  color: #fff;
+  text-decoration: none;
+}
+body#site-home > header {
   background: #000 no-repeat center;
 /*
-  background-image: url("/images/river_cover.jpg");
-  background-image: url("/images/rock_cover.jpg");
-  background-image: url("/images/sky_cover.jpg");
-  background-image: url("/images/lamp_cover.jpg");
+  background-image url("/images/river_cover.jpg")
+  background-image url("/images/rock_cover.jpg")
+  background-image url("/images/sky_cover.jpg")
+  background-image url("/images/lamp_cover.jpg")
   */
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -246,7 +280,7 @@ header {
   -ms-perspective-origin: 50%;
   perspective-origin: 50%;
 }
-header:before {
+body#site-home > header:before {
   content: " ";
   position: absolute;
   top: 0;
@@ -263,18 +297,20 @@ header:before {
   -ms-transition: opacity 0.6s linear;
   transition: opacity 0.6s linear;
 }
-header.image-loaded:before {
+body#site-home > header.image-loaded:before {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }
-header h1 {
+body#site-home > header h1 {
+  font-family: "BrandonGrotesque-Thin", Arial, sans-serif;
+  font-weight: 100;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   display: block;
   color: #fff;
-  text-shadow: 0 2px 0 rgba(0,0,0,0.6);
+  text-shadow: 1px 2px 0 rgba(0,0,0,0.6);
   text-align: center;
   font-size: 80px;
   line-height: 2;
@@ -303,11 +339,16 @@ header h1 {
   -o-transform: rotatex(40deg);
   -ms-transform: rotatex(40deg);
   transform: rotatex(40deg);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-header h1 br {
-  display: none;
+body#site-home > header h1 a {
+  cursor: default;
+  pointer-events: none;
 }
-header h1.relaxed {
+body#site-home > header h1.relaxed {
   opacity: 1;
   -ms-filter: none;
   filter: none;
@@ -319,24 +360,113 @@ header h1.relaxed {
   transform: rotatex(0deg);
 }
 @media (max-width: 1450px) {
-  header h1 {
+  body#site-home > header h1 {
     font-size: 60px;
   }
 }
 @media (max-width: 1024px) {
-  header h1 {
+  body#site-home > header h1 {
     font-size: 40px;
   }
 }
 @media (max-width: 768px) {
-  header h1 {
+  body#site-home > header h1 {
     font-size: 30px;
     height: 120px;
   }
-  header h1 br {
+  body#site-home > header h1 br {
     display: block;
   }
 }
-#main {
+body > footer {
+  display: block;
+  position: relative;
+  background: #000;
+  color: #eee;
+  text-align: center;
+  padding: 8em 0 4em 0;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+}
+body > footer p {
+  margin: 0.5em 0;
+}
+#site-home #main {
+  padding-top: 10em;
   display: none;
+}
+#site-home.header-loaded #main {
+  display: block;
+}
+#post {
+  margin: 0 auto 1em;
+}
+#post header {
+  max-width: 562px;
+  padding: 0 5px 0 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3em;
+}
+#post header h1 {
+  margin: 0 0 0.5em 0;
+  background: #000;
+  color: #fff;
+  padding: 0 0.4em;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-weight: 100;
+}
+#post h1,
+#post h2 {
+  max-width: 562px;
+  padding: 0 5px 0 5px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+  margin: 2em auto 1em auto;
+}
+#post p {
+  max-width: 562px;
+  padding: 0 5px 0 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#post p img {
+  max-width: 100%;
+}
+.posts {
+  max-width: 562px;
+  padding: 0 5px 0 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 1em auto;
+}
+.posts header {
+  padding-bottom: 1px;
+  border-bottom: 1px solid #f34a53;
+  position: relative;
+  margin-bottom: 3em;
+}
+.posts header h1 {
+  background: #f34a53;
+  color: #fff;
+  padding: 0 0.4em;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+.posts header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+.posts header time {
+  position: absolute;
+  bottom: -30px;
+  line-height: 30px;
+  height: 30px;
+  font-size: 1rem;
+  color: #f34a53;
+  font-family: "Brandon Grotesque", Arial, sans-serif;
+  font-weith: 100;
+  text-transform: uppercase;
 }
