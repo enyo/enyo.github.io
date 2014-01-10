@@ -225,16 +225,17 @@ body {
  * Generic elements
  */
 h1 {
-  font-family: "Brandon Grotesque", Arial, sans-serif;
+  font-family: "brandon-grotesque", Arial, sans-serif;
   font-size: 2em;
   line-height: 1.4;
-  font-weight: 100;
+  font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 p {
   line-height: 1.8;
   margin: 2em 0;
+  font-family: "calluna", serif;
 }
 /**
  * Basic layout
@@ -415,10 +416,9 @@ body > footer p {
   padding: 0 0.4em;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  font-weight: 100;
 }
-#post h1,
-#post h2 {
+#post .content h1,
+#post .content h2 {
   max-width: 562px;
   padding: 0 5px 0 5px;
   margin-left: auto;
@@ -426,13 +426,13 @@ body > footer p {
   font-weight: 500;
   margin: 2em auto 1em auto;
 }
-#post p {
+#post .content p {
   max-width: 562px;
   padding: 0 5px 0 5px;
   margin-left: auto;
   margin-right: auto;
 }
-#post p img {
+#post .content p img {
   max-width: 100%;
 }
 .posts {
@@ -466,7 +466,7 @@ body > footer p {
   height: 30px;
   font-size: 1rem;
   color: #f34a53;
-  font-family: "Brandon Grotesque", Arial, sans-serif;
-  font-weith: 100;
+  font-family: "brandon-grotesque", Arial, sans-serif;
+  font-weith: 200;
   text-transform: uppercase;
 }
