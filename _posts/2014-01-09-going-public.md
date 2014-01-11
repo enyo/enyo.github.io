@@ -36,7 +36,7 @@ be outsourced to other services and be included with JavaScript.
 design or layout of my articles while writing, or having to modify my article
 because it didn't suit my styling visions.
 
-4. *I wanted to have fun doing it!* Having built endless suites that had to be
+4. *I wanted to have fun doing it!* Having built endless sites that had to be
 optimized for IE6+ and other legacy browsers, I really felt the urge to simply
 use the latest technology available, and don't look back. If people want to
 read my posts on deprecated browsers, they can. But they won't see any layout.
@@ -65,6 +65,7 @@ This is why I went with [Jekyll][], [Stylus][], [Dart][] and [Disqus][].
       </p>
     </div>
   </div>
+  <aside class="copyright">Video still from Dr. Jekyll and Mr. Hyde (1941)</aside>
 </div>
 
 

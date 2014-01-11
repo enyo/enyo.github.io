@@ -262,6 +262,10 @@ a {
     list-style-position: inside;
   }
 }
+aside {
+  font-family: "calluna", serif;
+  line-height: 1.8;
+}
 p,
 ul,
 ol {
@@ -506,6 +510,16 @@ body > footer p {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  position: relative;
+}
+#post .content .backdrop aside.copyright {
+  position: absolute;
+  font-size: 0.8em;
+  color: rgba(0,0,0,0.3);
+  text-align: center;
+  left: 0.5em;
+  bottom: 0.5em;
+  margin: 0;
 }
 #post .content .backdrop > h1:first-child,
 #post .content .backdrop > h2:first-child,
@@ -519,6 +533,9 @@ body > footer p {
 #post .content .backdrop.dark {
   color: #fff;
   text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+#post .content .backdrop.dark aside.copyright {
+  color: rgba(255,255,255,0.3);
 }
 #post .content h1,
 #post .content h2,
