@@ -357,9 +357,6 @@ JSFixedArray: {"": "JSMutableArray;"},
 JSExtendableArray: {"": "JSMutableArray;", $isJSExtendableArray: true},
 
 JSNumber: {"": "num/Interceptor;",
-  get$isNegative: function(receiver) {
-    return receiver === 0 ? 1 / receiver < 0 : receiver < 0;
-  },
   remainder$1: function(receiver, b) {
     return receiver % b;
   },
@@ -428,9 +425,9 @@ JSNumber: {"": "num/Interceptor;",
 
 },
 
-JSInt: {"": "int/JSNumber;", $isdouble: true, $isnum: true, $isint: true},
+JSInt: {"": "int/JSNumber;", $isnum: true, $isint: true},
 
-JSDouble: {"": "double/JSNumber;", $isdouble: true, $isnum: true},
+JSDouble: {"": "double/JSNumber;", $isnum: true},
 
 JSString: {"": "String/Interceptor;",
   codeUnitAt$1: function(receiver, index) {
@@ -5521,9 +5518,6 @@ DomException: {"": "Interceptor;",
 },
 
 Element: {"": "Node;",
-  get$classes: function(receiver) {
-    return new W._ElementCssClassSet(receiver);
-  },
   toString$0: function(receiver) {
     return receiver.localName;
   },
@@ -5532,7 +5526,7 @@ Element: {"": "Node;",
     H.setRuntimeTypeInfo(t1, [null]);
     return t1;
   },
-  "%": ";Element"
+  "%": "SVGAElement|SVGAltGlyphDefElement|SVGAltGlyphElement|SVGAltGlyphItemElement|SVGAnimateColorElement|SVGAnimateElement|SVGAnimateMotionElement|SVGAnimateTransformElement|SVGAnimationElement|SVGCircleElement|SVGClipPathElement|SVGComponentTransferFunctionElement|SVGCursorElement|SVGDefsElement|SVGDescElement|SVGElement|SVGEllipseElement|SVGFEBlendElement|SVGFEColorMatrixElement|SVGFEComponentTransferElement|SVGFECompositeElement|SVGFEConvolveMatrixElement|SVGFEDiffuseLightingElement|SVGFEDisplacementMapElement|SVGFEDistantLightElement|SVGFEDropShadowElement|SVGFEFloodElement|SVGFEFuncAElement|SVGFEFuncBElement|SVGFEFuncGElement|SVGFEFuncRElement|SVGFEGaussianBlurElement|SVGFEImageElement|SVGFEMergeElement|SVGFEMergeNodeElement|SVGFEMorphologyElement|SVGFEOffsetElement|SVGFEPointLightElement|SVGFESpecularLightingElement|SVGFESpotLightElement|SVGFETileElement|SVGFETurbulenceElement|SVGFilterElement|SVGFontElement|SVGFontFaceElement|SVGFontFaceFormatElement|SVGFontFaceNameElement|SVGFontFaceSrcElement|SVGFontFaceUriElement|SVGForeignObjectElement|SVGGElement|SVGGlyphElement|SVGGlyphRefElement|SVGGradientElement|SVGGraphicsElement|SVGHKernElement|SVGImageElement|SVGLineElement|SVGLinearGradientElement|SVGMPathElement|SVGMarkerElement|SVGMaskElement|SVGMetadataElement|SVGMissingGlyphElement|SVGPathElement|SVGPatternElement|SVGPolygonElement|SVGPolylineElement|SVGRadialGradientElement|SVGRectElement|SVGSVGElement|SVGScriptElement|SVGSetElement|SVGStopElement|SVGStyleElement|SVGSwitchElement|SVGSymbolElement|SVGTSpanElement|SVGTextContentElement|SVGTextElement|SVGTextPathElement|SVGTextPositioningElement|SVGTitleElement|SVGUseElement|SVGVKernElement|SVGViewElement;Element"
 },
 
 EmbedElement: {"": "HtmlElement;name=,src}", "%": "HTMLEmbedElement"},
@@ -5606,9 +5600,6 @@ TrackElement: {"": "HtmlElement;src}", "%": "HTMLTrackElement"},
 Window: {"": "EventTarget;",
   toString$0: function(receiver) {
     return receiver.toString();
-  },
-  get$scrollY: function(receiver) {
-    return "scrollY" in receiver ? receiver.scrollY : receiver.document.documentElement.scrollTop;
   },
   "%": "DOMWindow|Window"
 },
@@ -5699,9 +5690,6 @@ CssStyleDeclarationBase: {"": "Object;",
   },
   set$height: function(receiver, value) {
     this.setProperty$3(receiver, "height", value, "");
-  },
-  set$opacity: function(receiver, value) {
-    this.setProperty$3(receiver, "opacity", value, "");
   }
 },
 
@@ -5954,34 +5942,6 @@ FixedSizeListIterator$: function(array) {
 }}
 
 }}],
-["dart.dom.svg", "dart:svg", , P, {
-SvgElement: {"": "Element;",
-  get$classes: function(receiver) {
-    if (receiver._cssClassSet == null)
-      receiver._cssClassSet = new P._AttributeClassSet(receiver);
-    return receiver._cssClassSet;
-  },
-  "%": "SVGAElement|SVGAltGlyphDefElement|SVGAltGlyphElement|SVGAltGlyphItemElement|SVGAnimateColorElement|SVGAnimateElement|SVGAnimateMotionElement|SVGAnimateTransformElement|SVGAnimationElement|SVGCircleElement|SVGClipPathElement|SVGComponentTransferFunctionElement|SVGCursorElement|SVGDefsElement|SVGDescElement|SVGElement|SVGEllipseElement|SVGFEBlendElement|SVGFEColorMatrixElement|SVGFEComponentTransferElement|SVGFECompositeElement|SVGFEConvolveMatrixElement|SVGFEDiffuseLightingElement|SVGFEDisplacementMapElement|SVGFEDistantLightElement|SVGFEDropShadowElement|SVGFEFloodElement|SVGFEFuncAElement|SVGFEFuncBElement|SVGFEFuncGElement|SVGFEFuncRElement|SVGFEGaussianBlurElement|SVGFEImageElement|SVGFEMergeElement|SVGFEMergeNodeElement|SVGFEMorphologyElement|SVGFEOffsetElement|SVGFEPointLightElement|SVGFESpecularLightingElement|SVGFESpotLightElement|SVGFETileElement|SVGFETurbulenceElement|SVGFilterElement|SVGFontElement|SVGFontFaceElement|SVGFontFaceFormatElement|SVGFontFaceNameElement|SVGFontFaceSrcElement|SVGFontFaceUriElement|SVGForeignObjectElement|SVGGElement|SVGGlyphElement|SVGGlyphRefElement|SVGGradientElement|SVGGraphicsElement|SVGHKernElement|SVGImageElement|SVGLineElement|SVGLinearGradientElement|SVGMPathElement|SVGMarkerElement|SVGMaskElement|SVGMetadataElement|SVGMissingGlyphElement|SVGPathElement|SVGPatternElement|SVGPolygonElement|SVGPolylineElement|SVGRadialGradientElement|SVGRectElement|SVGSVGElement|SVGScriptElement|SVGSetElement|SVGStopElement|SVGStyleElement|SVGSwitchElement|SVGSymbolElement|SVGTSpanElement|SVGTextContentElement|SVGTextElement|SVGTextPathElement|SVGTextPositioningElement|SVGTitleElement|SVGUseElement|SVGVKernElement|SVGViewElement"
-},
-
-_AttributeClassSet: {"": "CssClassSetImpl;_svg$_element",
-  readClasses$0: function() {
-    var classname, s, t1, trimmed;
-    classname = new W._ElementAttributeMap(this._svg$_element)._element.getAttribute("class");
-    s = P.LinkedHashSet_LinkedHashSet(null, null, null, J.JSString);
-    if (classname == null)
-      return s;
-    for (t1 = classname.split(" "), t1 = new H.ListIterator(t1, t1.length, 0, null); t1.moveNext$0();) {
-      trimmed = J.trim$0$s(t1._current);
-      if (trimmed.length !== 0)
-        s.add$1(s, trimmed);
-    }
-    return s;
-  },
-  writeClasses$1: function(s) {
-    new W._ElementAttributeMap(this._svg$_element)._element.setAttribute("class", s.join$1(s, " "));
-  }
-}}],
 ["dart.isolate", "dart:isolate", , P, {
 ReceivePort: {"": "Object;"}}],
 ["dart.math", "dart:math", , P, {
@@ -5995,22 +5955,6 @@ _JenkinsSmiHash_finish0: function(hash) {
   hash = 536870911 & hash + ((67108863 & hash) << 3 >>> 0);
   hash = (hash ^ C.JSInt_methods.$shr(hash, 11)) >>> 0;
   return 536870911 & hash + ((16383 & hash) << 15 >>> 0);
-},
-
-min: function(a, b) {
-  if (a > b)
-    return b;
-  if (a < b)
-    return a;
-  if (typeof b === "number") {
-    if (typeof a === "number")
-      if (a === 0)
-        return (a + b) * a * b;
-    if (a === 0 && C.JSInt_methods.get$isNegative(b) || isNaN(b))
-      return b;
-    return a;
-  }
-  return a;
 }}],
 ["dart.typed_data", "dart:typed_data", , P, {
 TypedData: {"": "Interceptor;",
@@ -6059,6 +6003,61 @@ Uint8List: {"": "TypedData_ListMixin_FixedLengthListMixin;",
 TypedData_ListMixin: {"": "TypedData+ListMixin;", $isList: true, $asList: null, $isEfficientLength: true},
 
 TypedData_ListMixin_FixedLengthListMixin: {"": "TypedData_ListMixin+FixedLengthListMixin;", $asList: null}}],
+["home_header", "home_header.dart", , T, {
+initHeaderIfHome: function() {
+  var t1, backgroundImage, t2;
+  if (document.body.id !== "site-home")
+    return;
+  $.headerElement = document.querySelector("body > header");
+  t1 = $.headerElement;
+  t1.toString;
+  t1 = new W._DataAttributeMap(new W._ElementAttributeMap(t1));
+  backgroundImage = t1._attributes._element.getAttribute("data-" + t1._toHyphenedName$1("image"));
+  T._preloadImage(backgroundImage).then$1(new T.initHeaderIfHome_closure(backgroundImage));
+  t1 = new W._EventStream(window, C.EventStreamProvider_resize._eventType, false);
+  H.setRuntimeTypeInfo(t1, [null]);
+  t2 = new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.initHeaderIfHome_closure0()), t1._useCapture);
+  H.setRuntimeTypeInfo(t2, [H.getRuntimeTypeArgument(t1, "_EventStream", 0)]);
+  t2._tryResume$0();
+  T._updateHeaderSize();
+},
+
+_preloadImage: function(imageUrl) {
+  var image, t1;
+  image = W.ImageElement_ImageElement(null, null, null);
+  t1 = J.getInterceptor$x(image);
+  t1.set$src(image, imageUrl);
+  t1 = t1.get$onLoad(image);
+  return t1.get$first(t1);
+},
+
+_initializeHeaderWithImage: function(backgroundImage) {
+  var t1;
+  J.set$backgroundImage$x($.headerElement.style, "url(" + backgroundImage + ")");
+  t1 = document.body;
+  t1.toString;
+  t1 = new W._ElementCssClassSet(t1);
+  t1.add$1(t1, "header-loaded");
+},
+
+_updateHeaderSize: function() {
+  $.windowHeight = J.get$height$x(document.body.getBoundingClientRect());
+  J.set$height$x($.headerElement.style, H.S($.windowHeight) + "px");
+},
+
+initHeaderIfHome_closure: {"": "Closure;backgroundImage_0",
+  call$1: function(e) {
+    T._initializeHeaderWithImage(this.backgroundImage_0);
+  },
+  $is_args1: true
+},
+
+initHeaderIfHome_closure0: {"": "Closure;",
+  call$1: function(e) {
+    return T._updateHeaderSize();
+  },
+  $is_args1: true
+}}],
 ["html_common", "dart:html_common", , P, {
 CssClassSetImpl: {"": "Object;",
   toString$0: function(_) {
@@ -6102,69 +6101,8 @@ CssClassSetImpl_add_closure: {"": "Closure;value_0",
   $is_args1: true
 }}],
 ["", "main.dart", , F, {
-initializeHeader: function(backgroundImage) {
-  var t1;
-  J.set$backgroundImage$x($.headerElement.style, "url(" + backgroundImage + ")");
-  t1 = J.get$classes$x($.headerElement);
-  t1.add$1(t1, "image-loaded");
-  t1 = J.get$classes$x($.headerElement.querySelector("h1"));
-  t1.add$1(t1, "relaxed");
-  t1 = document.body;
-  t1.toString;
-  t1 = new W._ElementCssClassSet(t1);
-  t1.add$1(t1, "header-loaded");
-},
-
-updateHeaderSize: function() {
-  $.windowHeight = J.get$height$x(document.body.getBoundingClientRect());
-  J.set$height$x($.headerElement.style, H.S($.windowHeight) + "px");
-},
-
-updateHeaderBackground: function() {
-  var t1, t2, ratio;
-  t1 = C.Window_methods.get$scrollY(window);
-  t2 = $.windowHeight;
-  if (typeof t1 !== "number")
-    throw t1.$div();
-  if (typeof t2 !== "number")
-    throw H.iae(t2);
-  ratio = P.min(t1 / t2, 1);
-  J.set$opacity$x($.headerElement.style, H.S(1 - ratio));
-},
-
 main: function() {
-  var t1, backgroundImage, image, t2;
-  $.headerElement = document.querySelector("body > header");
-  t1 = $.headerElement;
-  t1.toString;
-  t1 = new W._DataAttributeMap(new W._ElementAttributeMap(t1));
-  backgroundImage = t1._attributes._element.getAttribute("data-" + t1._toHyphenedName$1("image"));
-  image = W.ImageElement_ImageElement(null, null, null);
-  t1 = J.getInterceptor$x(image);
-  t1.set$src(image, backgroundImage);
-  t1 = t1.get$onLoad(image);
-  t1.get$first(t1).then$1(new F.main_closure(backgroundImage));
-  t1 = new W._EventStream(window, C.EventStreamProvider_resize._eventType, false);
-  H.setRuntimeTypeInfo(t1, [null]);
-  t2 = new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new F.main_closure0()), t1._useCapture);
-  H.setRuntimeTypeInfo(t2, [H.getRuntimeTypeArgument(t1, "_EventStream", 0)]);
-  t2._tryResume$0();
-  F.updateHeaderSize();
-  F.updateHeaderBackground();
-},
-
-main_closure: {"": "Closure;backgroundImage_0",
-  call$1: function(e) {
-    return F.initializeHeader(this.backgroundImage_0);
-  },
-  $is_args1: true
-},
-
-main_closure0: {"": "Closure;",
-  call$1: function(e) {
-    return F.updateHeaderSize();
-  },
-  $is_args1: true
+  T.initHeaderIfHome();
 }},
 1],
 ]);
@@ -6185,9 +6123,9 @@ init.globalFunctions.identical$closure = P.identical$closure = new H.Closure$2(P
 init.globalFunctions.identityHashCode$closure = P.identityHashCode$closure = new P.Closure$1(P.identityHashCode, "identityHashCode$closure");
 init.globalFunctions.main$closure = F.main$closure = new H.Closure$0(F.main, "main$closure");
 // Runtime type support
+W.Node.$isObject = true;
 J.JSInt.$isint = true;
 J.JSInt.$isObject = true;
-W.Node.$isObject = true;
 J.JSString.$isString = true;
 J.JSString.$isObject = true;
 J.JSNumber.$isObject = true;
@@ -6418,7 +6356,6 @@ Isolate.makeConstantList = function(list) {
 };
 C.List_empty = Isolate.makeConstantList([]);
 C.UnknownJavaScriptObject_methods = J.UnknownJavaScriptObject.prototype;
-C.Window_methods = W.Window.prototype;
 $.lazyPort = null;
 $.ReceivePortImpl__nextFreeId = 1;
 $.Primitives_mirrorFunctionCacheName = "$cachedFunction";
@@ -6433,10 +6370,10 @@ $.printToZone = null;
 $._callbacksAreEnqueued = false;
 $.Zone__current = C.C__RootZone;
 $.Expando__keyCount = 0;
-$.Device__isOpera = null;
-$.Device__isWebKit = null;
 $.headerElement = null;
 $.windowHeight = null;
+$.Device__isOpera = null;
+$.Device__isWebKit = null;
 J.$eq = function(receiver, a0) {
   if (receiver == null)
     return a0 == null;
@@ -6469,9 +6406,6 @@ J.addEventListener$3$x = function(receiver, a0, a1, a2) {
 J.forEach$1$ax = function(receiver, a0) {
   return J.getInterceptor$ax(receiver).forEach$1(receiver, a0);
 };
-J.get$classes$x = function(receiver) {
-  return J.getInterceptor$x(receiver).get$classes(receiver);
-};
 J.get$error$x = function(receiver) {
   return J.getInterceptor$x(receiver).get$error(receiver);
 };
@@ -6501,9 +6435,6 @@ J.set$backgroundImage$x = function(receiver, value) {
 };
 J.set$height$x = function(receiver, value) {
   return J.getInterceptor$x(receiver).set$height(receiver, value);
-};
-J.set$opacity$x = function(receiver, value) {
-  return J.getInterceptor$x(receiver).set$opacity(receiver, value);
 };
 J.startsWith$1$s = function(receiver, a0) {
   return J.getInterceptor$s(receiver).startsWith$1(receiver, a0);

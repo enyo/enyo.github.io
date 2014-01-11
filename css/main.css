@@ -320,14 +320,30 @@ body > header a {
   color: #fff;
   text-decoration: none;
 }
+body#site-home.header-loaded > header:before {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+body#site-home.header-loaded > header h1 {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  letter-spacing: 1em;
+  -webkit-transform: rotatex(0deg);
+  -moz-transform: rotatex(0deg);
+  -o-transform: rotatex(0deg);
+  -ms-transform: rotatex(0deg);
+  transform: rotatex(0deg);
+}
 body#site-home > header {
   background: #000 no-repeat center;
 /*
-  background-image url("/images/river_cover.jpg")
-  background-image url("/images/rock_cover.jpg")
-  background-image url("/images/sky_cover.jpg")
-  background-image url("/images/lamp_cover.jpg")
-  */
+    background-image url("/images/river_cover.jpg")
+    background-image url("/images/rock_cover.jpg")
+    background-image url("/images/sky_cover.jpg")
+    background-image url("/images/lamp_cover.jpg")
+    */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -357,11 +373,6 @@ body#site-home > header:before {
   -o-transition: opacity 0.6s linear;
   -ms-transition: opacity 0.6s linear;
   transition: opacity 0.6s linear;
-}
-body#site-home > header.image-loaded:before {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
 }
 body#site-home > header h1 {
   font-family: "BrandonGrotesque-Thin", Arial, sans-serif;
@@ -408,17 +419,6 @@ body#site-home > header h1 {
 body#site-home > header h1 a {
   cursor: default;
   pointer-events: none;
-}
-body#site-home > header h1.relaxed {
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
-  letter-spacing: 1em;
-  -webkit-transform: rotatex(0deg);
-  -moz-transform: rotatex(0deg);
-  -o-transform: rotatex(0deg);
-  -ms-transform: rotatex(0deg);
-  transform: rotatex(0deg);
 }
 @media (max-width: 1450px) {
   body#site-home > header h1 {
