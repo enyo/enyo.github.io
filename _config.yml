@@ -1,4 +1,6 @@
 name: COLORGLARE
+description: "A website about Design, Programming, Photography, Music and random stuff by Matias Meno"
+url: http://www.colorglare.com
 markdown: redcarpet
 pygments: true
 exclude:
