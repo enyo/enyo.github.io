@@ -7,15 +7,14 @@ stylesheet: /css/going-public.css
 ---
 
 
-Since apparently every major intelligence agency on the world is watching me,
-I figured, why not share my thoughts with other people as well.
-
 This is the first draft of my website. I have been thinking of creating a
-website for about two years now, and have created about five different layouts
-for it, but never got to the point where I actually created it. Recently many
-people and companies started contacting me because of my open source projects
-and I realised, once again, that I have already many followers online, but no
-actual content to share.
+website for about two years now, but never got to the point where I actually
+created it. I always lost interest as soon as I had finished yet another design.
+
+Recently many people and companies started contacting me because of my open
+source projects which motivated me to start working on a real online presence.
+
+In this first post, I'll briefly talk about how I built the website.
 
 
 Technology
@@ -139,7 +138,7 @@ Dart
   </div>
   <div class="side">
     <p>
-      If you haven't been living under a rock, you have probably heard of Dart
+      Unless you've been living under a rock, you have probably heard of Dart
       already. It's a new language, developed by Google (and
       [my brother](https://www.dartlang.org/authors/florian-loitsch.html) I might add),
       that has recently
@@ -191,7 +190,6 @@ site, the language really starts to shine the bigger your project gets.
   case you'll have to get by with simple, unformatted HTML.
 </p>
 
-<p>Also, I grew up with IE6</p>
 
 
 [styl]: https://github.com/visionmedia/styl
