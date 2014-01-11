@@ -7,8 +7,8 @@ stylesheet: /css/going-public.css
 ---
 
 
-Since apparently every major intelligence agency on the world is in on my
-thoughts, I figured, why not share them with other people as well.
+Since apparently every major intelligence agency on the world is watching me,
+I figured, why not share my thoughts with other people as well.
 
 This is the first draft of my website. I have been thinking of creating a
 website for about two years now, and have created about five different layouts
