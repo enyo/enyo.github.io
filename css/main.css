@@ -499,7 +499,7 @@ body > footer p {
 #post .content .backdrop {
   margin: 10rem 0 4rem auto;
   width: 100%;
-  padding: 2em 0;
+  padding: 4.5em 0;
   text-shadow: 0 1px 0 rgba(255,255,255,0.6);
   background-repeat: no-repeat;
   background-position: center;
@@ -512,6 +512,9 @@ body > footer p {
 #post .content .backdrop > h3:first-child,
 #post .content .backdrop > h4:first-child {
   margin-top: 0;
+}
+#post .content .backdrop > p:last-child {
+  margin-bottom: 0;
 }
 #post .content .backdrop.dark {
   color: #fff;
@@ -538,6 +541,9 @@ body > footer p {
 }
 #post .content .side-by-side .side > p:first-child {
   margin-top: 0;
+}
+#post .content .side-by-side .side > p:last-child {
+  margin-bottom: 0;
 }
 #post .content .side-by-side .side > img {
   display: block;
@@ -613,7 +619,7 @@ body > footer p {
 }
 @media (min-width: 1200px) {
   #post .content .backdrop {
-    padding: 6em 0;
+    padding: 8em 0;
   }
   #post .content .side-by-side {
     max-width: 562px;
