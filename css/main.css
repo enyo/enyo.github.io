@@ -248,13 +248,13 @@ a {
 }
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5em;
-  }
-  h2 {
     font-size: 2em;
   }
+  h2 {
+    font-size: 1.8em;
+  }
   h3 {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 }
 p,
@@ -419,6 +419,7 @@ body#site-home > header h1.relaxed {
     display: block;
   }
   body#site-home > header h1 {
+    font-size: 30px;
     height: 120px;
   }
 }
@@ -465,10 +466,6 @@ body > footer p {
 }
 #post header time {
   display: block;
-}
-#post .content {
-  width: 100%;
-  overflow: hidden;
 }
 #post .content p,
 #post .content blockquote,

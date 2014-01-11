@@ -17,8 +17,8 @@ source projects which motivated me to start working on a real online presence.
 In this first post, I'll briefly talk about how I built the website.
 
 
-Technology
-==========
+Tech<wbr>nology
+===============
 
 
 I had a few goals for this website, that kind of dictated the technologies I
@@ -74,10 +74,14 @@ Stylus
 <div class="side-by-side">
   <div class="side">
     <p>
-      I started using [styl][] which is the spiritual successor of stylus.
+      I started using <a target="_blank" href="http://www.myth.io/">Myth</a>
+      (in combination with <a target="_blank" href="https://github.com/visionmedia/styl">styl</a>,
+      which is the spiritual successor of stylus), but converted back to <a target="_blank" href="http://learnboost.github.io/stylus/">Stylus</a>
+      after too many hickups.
     </p>
     <blockquote><p>
-      I actually wanted to use another CSS preprocessor but stylus is just too helpful
+      I actually wanted to use another CSS preprocessor but stylus gives me
+      everything I need, and more.
     </p></blockquote>
   </div>
   <div class="side"><img src="/images/posts/logo-stylus.png" alt="Stylus logo"></div>
@@ -85,6 +89,7 @@ Stylus
 
 <div class="side-by-side">
   <div class="side">
+
 {% highlight css %}
 main-color = blue
 html
@@ -105,6 +110,7 @@ html body > div {
   transition: color 1s linear;
 }
 {% endhighlight %}
+
   </div>
   <div class="side">
     <p>
@@ -114,9 +120,14 @@ html body > div {
       variables, mixins, functions, etc...
     </p>
     <p>
-      Other very popular CSS preprocessors are SASS and LessCSS, but I wanted
-      to go with <a href="http://www.myth.io/">Myth</a> because I really like
-      their «future safe» approach. Unfortunately I am really hooked on nested
+      Other very popular CSS preprocessors are SASS and LessCSS, but I initially
+      wanted to go with <a target="_blank" href="http://www.myth.io/">Myth</a>
+      because I really like their «future safe» approach.<br />
+      Myth is basically just a «polyfill» for the CSS specs that are in the works
+      right now.
+    </p>
+    <p>
+      Unfortunately I am really hooked on nested
       CSS blocks, and they are not part of a CSS draft *yet*. So I had to use
       another preprocessor to combine with Myth, and I finally decided that it's
       not worth the trouble.
@@ -140,9 +151,9 @@ Dart
     <p>
       Unless you've been living under a rock, you have probably heard of Dart
       already. It's a new language, developed by Google (and
-      [my brother](https://www.dartlang.org/authors/florian-loitsch.html) I might add),
+      <a target="_blank" href="https://www.dartlang.org/authors/florian-loitsch.html">my brother</a> I might add),
       that has recently
-      <a href="http://news.dartlang.org/2013/11/dart-10-stable-sdk-for-structured-web.html">released
+      <a target="_blank" href="http://news.dartlang.org/2013/11/dart-10-stable-sdk-for-structured-web.html">released
       the stable 1.0 SDK</a>.
     </p>
 
@@ -169,13 +180,13 @@ site, the language really starts to shine the bigger your project gets.
 
 
 <p>
-  This website will only support <a href="http://tomdale.net/2013/05/evergreen-browsers/">evergreen browsers</a>
+  This website will only support <a target="_blank" href="http://tomdale.net/2013/05/evergreen-browsers/">evergreen browsers</a>
   (browsers that automatically update themselves). For all other browsers I will
   be serving a pure HTML site without CSS. Why? Because: 
 </p>
 
 <blockquote><p>
-  I hate old browsers
+  I despise outdated browsers
 </p></blockquote>
 
 <p>
