@@ -51,7 +51,7 @@ This is why I went with [Jekyll][], [Stylus][], [Dart][] and [Disqus][].
 
   <div class="side-by-side">
     <div class="side">
-      <img src="http://mikowl.com/images/jekyll-logo.png" alt="Jekyll logo">
+      <img src="/images/posts/logo-jekyll.png" alt="Jekyll logo">
     </div>
     <div class="side">
       <p>
@@ -81,7 +81,7 @@ Stylus
       I actually wanted to use another CSS preprocessor but stylus is just too helpful
     </p></blockquote>
   </div>
-  <div class="side"><img src="http://harpjs.com/images/stylus.png" alt="Stylus logo"></div>
+  <div class="side"><img src="/images/posts/logo-stylus.png" alt="Stylus logo"></div>
 </div>
 
 <div class="side-by-side">
@@ -135,7 +135,7 @@ Dart
 
 <div class="side-by-side">
   <div class="side">
-    <img class="left" src="http://i.i.cbsi.com/cnwk.1d/i/tim/2011/11/23/Dart_logo_270x270.png" alt="Dart logo">
+    <img class="left" src="/images/posts/logo-dart.png" alt="Dart logo">
   </div>
   <div class="side">
     <p>
