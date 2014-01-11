@@ -12,6 +12,10 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+{% if page.stylesheet %}
+<link rel="stylesheet" href="{{ page.stylesheet }}">
+{% endif %}
+
 <script type="application/dart" src="scripts/main.dart"></script>
 <script src="scripts/dart.js"></script>
 

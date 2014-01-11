@@ -1,8 +1,10 @@
 
-centered-content()
+centered-content(double=false)
   max-width content-width + 10px
+  if (double)
+    max-width content-width*2 + 10px + 40px
   padding 0 5px 0 5px
   margin-left auto
   margin-right auto
-
+  position relative
 

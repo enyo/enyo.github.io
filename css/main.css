@@ -1,5 +1,6 @@
 .highlight {
-  background: #fff;
+  background: rgba(255,255,255,0.4);
+  padding: 1em 1.5em;
 }
 .highlight .c {
   color: #998;
@@ -207,7 +208,7 @@ body {
   height: 100%;
 }
 html {
-  font-size: 16px;
+  font-size: 17px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 200;
 }
@@ -220,22 +221,62 @@ html {
 }
 body {
   background: url("../images/background_tile.png") repeat center;
+  color: #666;
 }
 /**
  * Generic elements
  */
-h1 {
+h1,
+h2,
+h3 {
   font-family: "brandon-grotesque", Arial, sans-serif;
-  font-size: 2em;
+  font-size: 3em;
   line-height: 1.4;
   font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  text-align: center;
 }
-p {
+h2 {
+  font-size: 2.8em;
+}
+h3 {
+  font-size: 2em;
+}
+a {
+  color: inherit;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+}
+p,
+ul,
+ol {
   line-height: 1.8;
   margin: 2em 0;
   font-family: "calluna", serif;
+  position: relative;
+}
+blockquote {
+  margin: 2em 0;
+  border: 3px solid #f34a53;
+  border-left: none;
+  border-right: none;
+  color: #f34a53;
+  font-size: 1.2em;
+}
+blockquote p {
+  color: #f34a53;
+  text-align: center;
+  margin: 1em 0;
 }
 /**
  * Basic layout
@@ -371,12 +412,14 @@ body#site-home > header h1.relaxed {
   }
 }
 @media (max-width: 768px) {
-  body#site-home > header h1 {
+  body > header h1 {
     font-size: 30px;
-    height: 120px;
   }
-  body#site-home > header h1 br {
+  body > header h1 br {
     display: block;
+  }
+  body#site-home > header h1 {
+    height: 120px;
   }
 }
 body > footer {
@@ -407,9 +450,12 @@ body > footer p {
   padding: 0 5px 0 5px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
   margin-bottom: 3em;
+  text-align: center;
 }
 #post header h1 {
+  display: inline-block;
   margin: 0 0 0.5em 0;
   background: #000;
   color: #fff;
@@ -417,29 +463,124 @@ body > footer p {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
+#post header time {
+  display: block;
+}
+#post .content {
+  width: 100%;
+  overflow: hidden;
+}
+#post .content p,
+#post .content blockquote,
+#post .content ul,
+#post .content ol {
+  max-width: 562px;
+  padding: 0 5px 0 5px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+#post .content .backdrop {
+  margin: 10rem 0 4rem auto;
+  width: 100%;
+  padding: 2em 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+#post .content .backdrop > h1:first-child,
+#post .content .backdrop > h2:first-child,
+#post .content .backdrop > h3:first-child,
+#post .content .backdrop > h4:first-child {
+  margin-top: 0;
+}
+#post .content .backdrop.dark {
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
 #post .content h1,
-#post .content h2 {
-  max-width: 562px;
-  padding: 0 5px 0 5px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 500;
-  margin: 2em auto 1em auto;
+#post .content h2,
+#post .content h3 {
+  color: #f34a53;
+  font-weight: 400;
+  margin: 4em auto 2em auto;
 }
-#post .content p {
-  max-width: 562px;
-  padding: 0 5px 0 5px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#post .content p img {
+#post .content img {
   max-width: 100%;
+  display: block;
+}
+#post .content .side-by-side {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  zoom: 1;
+}
+#post .content .side-by-side .side {
+  max-width: 552px;
+}
+#post .content .side-by-side .side > p:first-child {
+  margin-top: 0;
+}
+#post .content .side-by-side .side > img {
+  display: block;
+  margin: auto;
+}
+#post .content .side-by-side:before,
+#post .content .side-by-side:after {
+  content: "";
+  display: table;
+}
+#post .content .side-by-side:after {
+  clear: both;
+}
+@media (max-width: 1200px) {
+  #post .content .side-by-side {
+    max-width: 562px;
+    padding: 0 5px 0 5px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+}
+@media (min-width: 1200px) {
+  #post .content .backdrop {
+    padding: 6em 0;
+  }
+  #post .content .side-by-side {
+    max-width: 562px;
+    max-width: 1154px;
+    padding: 0 5px 0 5px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  #post .content .side-by-side .side {
+    float: left;
+    width: 552px;
+  }
+  #post .content .side-by-side .side:first-child {
+    margin-right: 20px;
+  }
+  #post .content .side-by-side .side:last-child {
+    margin-left: 20px;
+  }
+}
+#main #disqus_thread {
+  max-width: 562px;
+  padding: 0 5px 0 5px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  margin-top: 10em;
 }
 .posts {
   max-width: 562px;
   padding: 0 5px 0 5px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
   margin: 1em auto;
 }
 .posts header {

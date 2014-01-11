@@ -24,7 +24,7 @@ html, body
   height 100% 
 
 html
-  font-size 16px
+  font-size 17px
   font-family "Helvetica Neue", Helvetica, Arial, sans-serif
   font-weight 200
 
@@ -39,25 +39,60 @@ body
 
   background url("../images/background_tile.png") repeat center
 
+  color #666
 
 
 /**
  * Generic elements
  */
-h1
+h1, h2, h3
   font-family "brandon-grotesque", Arial, sans-serif
-  font-size 2em
+  font-size 3em
   line-height 1.4
   font-weight 300
   letter-spacing 0.2em
   text-transform uppercase
+  text-align center
 
 
-p
+h2
+  font-size 2.8em
+h3
+  font-size 2em
+
+
+a
+  color inherit
+
+
+
+@media (max-width: 768px)
+  h1
+    font-size 2.5em
+  h2
+    font-size 2em
+  h3
+    font-size 1.5em
+
+
+p, ul, ol
   line-height 1.8
   margin 2em 0
   font-family "calluna", serif
+  position relative
 
+
+blockquote
+  margin 2em 0
+  border 3px solid main-color
+  border-left none
+  border-right none
+  color main-color
+  font-size 1.2em
+  p
+    color @color
+    text-align center
+    margin 1em 0
 
 /**
  * Basic layout
@@ -74,6 +109,12 @@ p
 @import "site-home"
 @import "site-post"
 
+
+
+#main
+  #disqus_thread
+    centered-content()
+    margin-top 10em
 
 
 .posts
@@ -109,3 +150,7 @@ p
       font-family "brandon-grotesque", Arial, sans-serif
       font-weith 200
       text-transform uppercase
+
+
+
+

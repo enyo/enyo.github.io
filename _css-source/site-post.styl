@@ -6,27 +6,97 @@
   header
     centered-content()
     margin-bottom 3em
+    text-align center
 
     h1
+      display inline-block
       margin 0 0 0.5em 0
       background black
       color white
       padding 0 0.4em
       border-radius 2px
 
+    time 
+      display block
 
 
   .content
 
-    h1, h2
+    width 100%
+    overflow hidden
+
+    p, blockquote, ul, ol
       centered-content()
 
-      font-weight 500
-      margin 2em auto 1em auto
 
-    p
-      centered-content()
 
-      img
-        max-width 100%
+    .backdrop
+      
+      margin 10rem 0 4rem auto
+      width 100%
+      padding 2em 0
+      text-shadow 0 1px 0 rgba(255, 255, 255, 0.6)
+      background-repeat no-repeat
+      background-position center
+      background-size cover
+
+      >
+        h1, h2, h3, h4
+          &:first-child
+            margin-top 0
+
+
+
+      &.dark 
+        color white
+        text-shadow 0 1px 0 rgba(0, 0, 0, 0.4)
+
+
+    h1, h2, h3
+
+      color main-color
+
+      font-weight 400
+      margin 4em auto 2em auto
+
+
+    img
+      max-width 100%
+      display block
+
+    .side-by-side
+      margin-top 2em
+      margin-bottom 2em
+      .side
+        max-width content-width
+
+        > p:first-child
+          margin-top 0
+        > img
+          display block
+          margin auto
+          
+
+      clearfix()
+
+    @media (max-width: 1200px)
+      .side-by-side
+        centered-content()
+
+    @media (min-width: 1200px)
+      // > div
+      .backdrop
+        padding 6em 0
+
+      .side-by-side
+        centered-content(true)
+        .side
+          float left
+          width content-width
+          &:first-child
+            margin-right 20px
+
+          &:last-child
+            margin-left 20px
+
 
