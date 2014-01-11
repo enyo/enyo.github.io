@@ -74,6 +74,10 @@ a
   h3
     font-size 1.4em
 
+  ul, ol
+    li
+      list-style-position inside
+
 
 p, ul, ol
   line-height 1.8
@@ -81,6 +85,16 @@ p, ul, ol
   font-family "calluna", serif
   position relative
 
+  code
+    color main-color
+    display inline-block
+    border 1px solid main-color
+    padding 0em 0.3em
+    border-radius 2px
+    margin 0 0.3em
+    line-height 1.6em
+    font-size 0.9em
+    background rgba(main-color, 0.04)
 
 blockquote
   margin 2em 0
@@ -89,6 +103,7 @@ blockquote
   border-right none
   color main-color
   font-size 1.2em
+
   p
     color @color
     text-align center
