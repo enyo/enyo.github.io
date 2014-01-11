@@ -72,7 +72,22 @@
         > img
           display block
           margin auto
-          
+
+          opacity 1
+
+          transition opacity 0.6s linear, transform 0.6s ease-out
+          transform translateX(0)
+
+          &.out-of-view
+            opacity 0.3
+            border none
+            transform translateX(10px)
+            transition none
+        
+        &:first-child
+          > img.out-of-view
+            transform translateX(-10px)
+
 
       clearfix()
 
@@ -80,6 +95,11 @@
       .side-by-side
         centered-content()
 
+        .side > img.out-of-view
+          transform none !important
+          opacity 1
+          transition none
+  
     @media (min-width: 1200px)
       // > div
       .backdrop

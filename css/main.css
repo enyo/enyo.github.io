@@ -542,6 +542,42 @@ body > footer p {
 #post .content .side-by-side .side > img {
   display: block;
   margin: auto;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity 0.6s linear, -webkit-transform 0.6s ease-out;
+  -moz-transition: opacity 0.6s linear, -moz-transform 0.6s ease-out;
+  -o-transition: opacity 0.6s linear, -o-transform 0.6s ease-out;
+  -ms-transition: opacity 0.6s linear, -ms-transform 0.6s ease-out;
+  transition: opacity 0.6s linear, transform 0.6s ease-out;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+#post .content .side-by-side .side > img.out-of-view {
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
+  border: none;
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -o-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  transform: translateX(10px);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+#post .content .side-by-side .side:first-child > img.out-of-view {
+  -webkit-transform: translateX(-10px);
+  -moz-transform: translateX(-10px);
+  -o-transform: translateX(-10px);
+  -ms-transform: translateX(-10px);
+  transform: translateX(-10px);
 }
 #post .content .side-by-side:before,
 #post .content .side-by-side:after {
@@ -558,6 +594,21 @@ body > footer p {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+  }
+  #post .content .side-by-side .side > img.out-of-view {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -o-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none;
   }
 }
 @media (min-width: 1200px) {
