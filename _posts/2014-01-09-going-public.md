@@ -124,17 +124,31 @@ html body > div {
       wanted to go with <a target="_blank" href="http://www.myth.io/">Myth</a>
       because I really like their «future safe» approach.<br />
       Myth is basically just a «polyfill» for the CSS specs that are in the works
-      right now.
+      right now. It enables you to use following future features right now:
     </p>
+    <ul>
+      <li><strong><em>Variables</em></strong> with the <code>var-main-color: red;</code> and <code>var(main-color)</code> syntax</li>
+      <li><strong><em>Math</em></strong> with the <code>calc()</code> function. Many browsers already support this.</li>
+      <li><strong><em>Color Manipulation</em></strong> like <code>color(#aa0 tint(20%))</code> </li>
+      <li><strong><em>No Prefixes</em></strong> like <code>-webkit-transition</code>. All major browser vendors have agreed that prefixes should be a thing of the past.</li>
+    </ul>
     <p>
-      Unfortunately I am really hooked on nested
-      CSS blocks, and they are not part of a CSS draft *yet*. So I had to use
-      another preprocessor to combine with Myth, and I finally decided that it's
-      not worth the trouble.
+      Head on to their website for more information.
     </p>
   </div>
 </div>
 
+<p>
+  The really great part about this is that you won't be needing any preprocessor
+  at all anymore, as soon as the browsers support them themselves.
+</p>
+<p>
+  Unfortunately I am really hooked on nested CSS blocks, and they are not part
+  of a CSS draft <em>yet</em>. So I had to use another preprocessor to combine
+  with Myth, and I finally decided that it's not worth the trouble since stylus
+  provides a lot more features that might come in handy, and the variable syntax
+  of stylus is actually more natural than the CSS spec.
+</p>
 
 
 
@@ -196,7 +210,7 @@ site, the language really starts to shine the bigger your project gets.
 </p>
 
 <p>
-  For any commercial product, this is relevant. Fortunately, my website is *not*
+  For any commercial product, this is relevant. Fortunately, my website is <em>not</em>
   commercial. So, I'm sorry if you're surfing like it's the year 2000, but in that
   case you'll have to get by with simple, unformatted HTML.
 </p>
