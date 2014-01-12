@@ -196,10 +196,6 @@
   color: #099;
 }
 /* Global Reset */
-@font-face {
-  font-family: 'BrandonGrotesque-Thin';
-  src: url("/fonts/Brandon_thin.otf");
-}
 * {
   margin: 0;
   padding: 0;
@@ -319,6 +315,11 @@ body > header {
 }
 body > header h1 {
   font-size: 2.4em;
+  white-space: nowrap;
+}
+body > header span {
+  position: relative;
+  display: inline-block;
 }
 body > header a {
   color: #fff;
@@ -333,12 +334,81 @@ body#site-home.header-loaded > header h1 {
   opacity: 1;
   -ms-filter: none;
   filter: none;
-  letter-spacing: 1em;
   -webkit-transform: rotatex(0deg);
   -moz-transform: rotatex(0deg);
   -o-transform: rotatex(0deg);
   -ms-transform: rotatex(0deg);
   transform: rotatex(0deg);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(1) {
+  -webkit-transform: translateX(-0.5em);
+  -moz-transform: translateX(-0.5em);
+  -o-transform: translateX(-0.5em);
+  -ms-transform: translateX(-0.5em);
+  transform: translateX(-0.5em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(2) {
+  -webkit-transform: translateX(-0.4em);
+  -moz-transform: translateX(-0.4em);
+  -o-transform: translateX(-0.4em);
+  -ms-transform: translateX(-0.4em);
+  transform: translateX(-0.4em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(3) {
+  -webkit-transform: translateX(-0.30000000000000004em);
+  -moz-transform: translateX(-0.30000000000000004em);
+  -o-transform: translateX(-0.30000000000000004em);
+  -ms-transform: translateX(-0.30000000000000004em);
+  transform: translateX(-0.30000000000000004em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(4) {
+  -webkit-transform: translateX(-0.2em);
+  -moz-transform: translateX(-0.2em);
+  -o-transform: translateX(-0.2em);
+  -ms-transform: translateX(-0.2em);
+  transform: translateX(-0.2em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(5) {
+  -webkit-transform: translateX(-0.05em);
+  -moz-transform: translateX(-0.05em);
+  -o-transform: translateX(-0.05em);
+  -ms-transform: translateX(-0.05em);
+  transform: translateX(-0.05em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(6) {
+  -webkit-transform: translateX(0.05em);
+  -moz-transform: translateX(0.05em);
+  -o-transform: translateX(0.05em);
+  -ms-transform: translateX(0.05em);
+  transform: translateX(0.05em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(7) {
+  -webkit-transform: translateX(0.2em);
+  -moz-transform: translateX(0.2em);
+  -o-transform: translateX(0.2em);
+  -ms-transform: translateX(0.2em);
+  transform: translateX(0.2em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(8) {
+  -webkit-transform: translateX(0.30000000000000004em);
+  -moz-transform: translateX(0.30000000000000004em);
+  -o-transform: translateX(0.30000000000000004em);
+  -ms-transform: translateX(0.30000000000000004em);
+  transform: translateX(0.30000000000000004em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(9) {
+  -webkit-transform: translateX(0.4em);
+  -moz-transform: translateX(0.4em);
+  -o-transform: translateX(0.4em);
+  -ms-transform: translateX(0.4em);
+  transform: translateX(0.4em);
+}
+body#site-home.header-loaded > header h1 span:nth-of-type(10) {
+  -webkit-transform: translateX(0.5em);
+  -moz-transform: translateX(0.5em);
+  -o-transform: translateX(0.5em);
+  -ms-transform: translateX(0.5em);
+  transform: translateX(0.5em);
 }
 body#site-home > header {
   background: #000 no-repeat center;
@@ -379,7 +449,7 @@ body#site-home > header:before {
   transition: opacity 0.6s linear;
 }
 body#site-home > header h1 {
-  font-family: "BrandonGrotesque-Thin", Arial, sans-serif;
+  font-family: "brandon-grotesque", Arial, sans-serif;
   font-weight: 100;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -400,11 +470,11 @@ body#site-home > header h1 {
   letter-spacing: 0.9em;
   padding-left: 0.9em;
 /* To account for letter spacing */
-  -webkit-transition: letter-spacing 2s ease-out, -webkit-transform 1s ease-out, opacity 0.2s linear;
-  -moz-transition: letter-spacing 2s ease-out, -moz-transform 1s ease-out, opacity 0.2s linear;
-  -o-transition: letter-spacing 2s ease-out, -o-transform 1s ease-out, opacity 0.2s linear;
-  -ms-transition: letter-spacing 2s ease-out, -ms-transform 1s ease-out, opacity 0.2s linear;
-  transition: letter-spacing 2s ease-out, transform 1s ease-out, opacity 0.2s linear;
+  -webkit-transition: -webkit-transform 1s ease-out, opacity 0.2s linear;
+  -moz-transition: -moz-transform 1s ease-out, opacity 0.2s linear;
+  -o-transition: -o-transform 1s ease-out, opacity 0.2s linear;
+  -ms-transition: -ms-transform 1s ease-out, opacity 0.2s linear;
+  transition: transform 1s ease-out, opacity 0.2s linear;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
@@ -419,6 +489,18 @@ body#site-home > header h1 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+body#site-home > header h1 span {
+  -webkit-transition: -webkit-transform 2s ease-out;
+  -moz-transition: -moz-transform 2s ease-out;
+  -o-transition: -o-transform 2s ease-out;
+  -ms-transition: -ms-transform 2s ease-out;
+  transition: transform 2s ease-out;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -o-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
 }
 body#site-home > header h1 a {
   cursor: default;
@@ -441,6 +523,49 @@ body#site-home > header h1 a {
   body > header h1 br {
     display: block;
   }
+  body#site-home.header-loaded > header h1 {
+    font-weight: 300;
+  }
+  body#site-home.header-loaded > header h1 span:nth-of-type(1),
+  body#site-home.header-loaded > header h1 span:nth-of-type(6) {
+    -webkit-transform: translateX(-0.2em);
+    -moz-transform: translateX(-0.2em);
+    -o-transform: translateX(-0.2em);
+    -ms-transform: translateX(-0.2em);
+    transform: translateX(-0.2em);
+  }
+  body#site-home.header-loaded > header h1 span:nth-of-type(2),
+  body#site-home.header-loaded > header h1 span:nth-of-type(7) {
+    -webkit-transform: translateX(-0.1em);
+    -moz-transform: translateX(-0.1em);
+    -o-transform: translateX(-0.1em);
+    -ms-transform: translateX(-0.1em);
+    transform: translateX(-0.1em);
+  }
+  body#site-home.header-loaded > header h1 span:nth-of-type(3),
+  body#site-home.header-loaded > header h1 span:nth-of-type(8) {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+  body#site-home.header-loaded > header h1 span:nth-of-type(4),
+  body#site-home.header-loaded > header h1 span:nth-of-type(9) {
+    -webkit-transform: translateX(0.1em);
+    -moz-transform: translateX(0.1em);
+    -o-transform: translateX(0.1em);
+    -ms-transform: translateX(0.1em);
+    transform: translateX(0.1em);
+  }
+  body#site-home.header-loaded > header h1 span:nth-of-type(5),
+  body#site-home.header-loaded > header h1 span:nth-of-type(10) {
+    -webkit-transform: translateX(0.2em);
+    -moz-transform: translateX(0.2em);
+    -o-transform: translateX(0.2em);
+    -ms-transform: translateX(0.2em);
+    transform: translateX(0.2em);
+  }
   body#site-home > header h1 {
     font-size: 30px;
     height: 120px;
@@ -461,9 +586,13 @@ body > footer p {
 }
 #site-home #main {
   padding-top: 10em;
+}
+#site-home > footer,
+#site-home #main {
   display: none;
 }
-#site-home.header-loaded #main {
+#site-home.header-loaded #main,
+#site-home.header-loaded > footer {
   display: block;
 }
 #post {

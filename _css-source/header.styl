@@ -14,9 +14,18 @@ body > header
   padding 2em 0
   h1
     font-size 2.4em
+    // The wraping is done by the <br> in the middle of the header
+    white-space nowrap
+  span
+    position relative
+    display inline-block
+
   a
     color white
     text-decoration none
+
+
+smallest-letter-distance = 0.10em
 
 /**
  * The nice big header with background image.
@@ -29,9 +38,32 @@ body#site-home
         opacity 0
       h1
         opacity 1
-        letter-spacing 1em
+        // letter-spacing 1em
         transform rotatex(0deg)
 
+        // In the @media query below there is another distribution
+        span
+          &:nth-of-type(1)
+            transform translateX(-(smallest-letter-distance*5))
+          &:nth-of-type(2)
+            transform translateX(-(smallest-letter-distance*4))
+          &:nth-of-type(3)
+            transform translateX(-(smallest-letter-distance*3))
+          &:nth-of-type(4)
+            transform translateX(-(smallest-letter-distance*2))
+          &:nth-of-type(5)
+            transform translateX(-(smallest-letter-distance/2))
+
+          &:nth-of-type(6)
+            transform translateX((smallest-letter-distance/2))
+          &:nth-of-type(7)
+            transform translateX(smallest-letter-distance*2)
+          &:nth-of-type(8)
+            transform translateX(smallest-letter-distance*3)
+          &:nth-of-type(9)
+            transform translateX(smallest-letter-distance*4)
+          &:nth-of-type(10)
+            transform translateX(smallest-letter-distance*5)
 
 
   > header
@@ -63,7 +95,7 @@ body#site-home
     
 
     h1
-      font-family "BrandonGrotesque-Thin", Arial, sans-serif
+      font-family "brandon-grotesque", Arial, sans-serif
       font-weight 100
       opacity 0
       display block
@@ -83,12 +115,16 @@ body#site-home
 
       padding-left 0.9em /* To account for letter spacing */
 
-      transition letter-spacing 2s ease-out, transform 1s ease-out, opacity 0.2s linear
+      transition transform 1s ease-out, opacity 0.2s linear
       
       transform-style preserve-3d
       transform rotatex(40deg)
       user-select none
 
+      // The spans are used to make the letters expand
+      span
+        transition transform 2s ease-out
+        transform translateX(0)
 
       a
         // It's confusing otherwise. People will think that this is the entrance
@@ -120,7 +156,31 @@ body#site-home
     font-size 30px
     br
       display block
-    
+
+
+  body#site-home.header-loaded > header h1
+    // Since there is a line break now, the letters have to be distributed
+    // differently    
+    font-weight 300
+    span
+      &:nth-of-type(1)
+      &:nth-of-type(6)
+        transform translateX(-(smallest-letter-distance*2))
+      &:nth-of-type(2)
+      &:nth-of-type(7)
+        transform translateX(-(smallest-letter-distance*1))
+      &:nth-of-type(3)
+      &:nth-of-type(8)
+        transform translateX(0)
+      &:nth-of-type(4)
+      &:nth-of-type(9)
+        transform translateX((smallest-letter-distance*1))
+      &:nth-of-type(5)
+      &:nth-of-type(10)
+        transform translateX((smallest-letter-distance*2))
+
+
+
   body#site-home > header h1
     font-size 30px
     height 120px
