@@ -640,7 +640,7 @@ body > footer p {
   }
   #post .content .side-by-side {
     max-width: 562px;
-    max-width: 1154px;
+    max-width: 1174px;
     padding: 0 5px 0 5px;
     margin-left: auto;
     margin-right: auto;
@@ -651,10 +651,10 @@ body > footer p {
     width: 552px;
   }
   #post .content .side-by-side .side:first-child {
-    margin-right: 20px;
+    margin-right: 30px;
   }
   #post .content .side-by-side .side:last-child {
-    margin-left: 20px;
+    margin-left: 30px;
   }
 }
 #main #disqus_thread {
