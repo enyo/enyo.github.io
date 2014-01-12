@@ -824,9 +824,25 @@ body > footer p {
   bottom: -30px;
   line-height: 30px;
   height: 30px;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #f34a53;
   font-family: "brandon-grotesque", Arial, sans-serif;
-  font-weith: 200;
+  font-weight: 400;
   text-transform: uppercase;
+}
+.posts footer {
+  text-align: right;
+}
+.posts footer a.continue-reading {
+  background: #f34a53;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  color: #fff;
+  font-family: "brandon-grotesque", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 0.5em;
+  font-size: 0.8em;
+  display: inline-block;
 }
