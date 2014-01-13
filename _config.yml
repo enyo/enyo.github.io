@@ -3,6 +3,7 @@ description: "A website about Design, Programming, Photography, Music and random
 url: http://www.colorglare.com
 markdown: redcarpet
 pygments: true
+permalink: /:year/:month/:day/:title.html
 exclude:
   - build.dart
   - pubspec.*
