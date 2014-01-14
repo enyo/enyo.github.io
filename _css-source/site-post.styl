@@ -21,9 +21,9 @@
 
 
   .content
-
-    p, blockquote, ul, ol
-      centered-content()
+    >
+      p, blockquote, ul, ol, section
+        centered-content()
 
 
 
@@ -82,7 +82,7 @@
       margin-top 2em
       margin-bottom 2em
       .side
-        max-width content-width
+        max-width content-width - 10px
 
         > p:first-child
           margin-top 0

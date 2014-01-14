@@ -607,7 +607,7 @@ body > footer p {
 }
 #post header {
   max-width: 562px;
-  padding: 0 5px 0 5px;
+  padding: 0 10px 0 10px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -626,12 +626,13 @@ body > footer p {
 #post header time {
   display: block;
 }
-#post .content p,
-#post .content blockquote,
-#post .content ul,
-#post .content ol {
+#post .content > p,
+#post .content > blockquote,
+#post .content > ul,
+#post .content > ol,
+#post .content > section {
   max-width: 562px;
-  padding: 0 5px 0 5px;
+  padding: 0 10px 0 10px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -690,7 +691,7 @@ body > footer p {
   zoom: 1;
 }
 #post .content .side-by-side .side {
-  max-width: 552px;
+  max-width: 542px;
 }
 #post .content .side-by-side .side > p:first-child {
   margin-top: 0;
@@ -749,7 +750,7 @@ body > footer p {
 @media (max-width: 1200px) {
   #post .content .side-by-side {
     max-width: 562px;
-    padding: 0 5px 0 5px;
+    padding: 0 10px 0 10px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -776,8 +777,8 @@ body > footer p {
   }
   #post .content .side-by-side {
     max-width: 562px;
-    max-width: 1174px;
-    padding: 0 5px 0 5px;
+    max-width: 1164px;
+    padding: 0 10px 0 10px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -795,7 +796,7 @@ body > footer p {
 }
 #main #disqus-container {
   max-width: 562px;
-  padding: 0 5px 0 5px;
+  padding: 0 10px 0 10px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -803,7 +804,7 @@ body > footer p {
 }
 .posts {
   max-width: 562px;
-  padding: 0 5px 0 5px;
+  padding: 0 10px 0 10px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
