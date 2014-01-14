@@ -793,7 +793,7 @@ body > footer p {
     margin-left: 30px;
   }
 }
-#main #disqus_thread {
+#main #disqus-container {
   max-width: 562px;
   padding: 0 5px 0 5px;
   margin-left: auto;
