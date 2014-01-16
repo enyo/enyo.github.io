@@ -2,7 +2,7 @@
 layout: post
 title:  "Going public"
 date:   2014-01-10 01:30:50
-categories: website design
+categories: website web design
 stylesheet: /css/going-public.css
 ---
 
