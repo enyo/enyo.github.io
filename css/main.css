@@ -594,14 +594,6 @@ body > footer p {
 #site-home #main {
   padding-top: 10em;
 }
-#site-home > footer,
-#site-home #main {
-  display: none;
-}
-#site-home.header-loaded #main,
-#site-home.header-loaded > footer {
-  display: block;
-}
 #post {
   margin: 0 auto 1em;
 }
