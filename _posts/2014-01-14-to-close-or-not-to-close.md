@@ -19,9 +19,9 @@ my findings on that subject were a lot more interesting than anticipated
 # Void elements
 
 
-Void elements are a special kind of element that **must not** contain content.
+Void elements are a special kind of element that **must not** have content.
 That's a big difference to other elements that *can* be empty but can also contain
-content (such as `<div>`s).
+other elements and text (such as `<div>`s).
 
 
 
@@ -29,7 +29,7 @@ The most known void elements are:
 
 `<br>` `<hr>` `<img>` `<input>` `<link>` `<meta>`
 
-The lesser known void elements are:
+The lesser known are:
 
 `<area>` `<base>` `<col>` `<command>` `<embed>` `<keygen>` `<param>` `<source>` `<track>` `<wbr>`
 
@@ -40,7 +40,7 @@ It is not, and has never been, valid HTML to write `<br></br>`, since this would
 imply that the `br` element accepts content (Writing `<br>Hello!</br>` has 
 absolutely no meaning). However, it is very common to see both `<br>` and `<br />`.
 
-Although most people know that in XHTML it is *mandatory* to write `<br />` the
+Although most people know that in **X**HTML it is *mandatory* to write `<br />` the
 rules for HTML are less obvious.
 
 
@@ -63,12 +63,18 @@ This is a short notation to avoid having to close a tag when the content
 of your element is simple text. With *NET* you can write `<quote/Quoted text/`
 instead of `<quote>Quoted text</quote>`.
 
-  Void tags thus be autoclosed with SHORTTAG NETENABL IMMEDNET
-  -> `<quote//` same as `<quote></quote>`
+Naturally, elements that do not contain any text, can be written as `<quote//`
+which is called [SHORTTAG NETENABL IMMEDNET](http://en.wikipedia.org/wiki/Standard_Generalized_Markup_Language#Other_features)
+and is the same as `<quote></quote>`.
 
-  - HTML4 implemented it with bad browser support
-    
-     in HTML4 <foo / means <foo> and <foo/bar/ means <foo>bar</foo>
+Now, by that logic, if a void element does *not* have a closing tag, `<br/` would
+be interpreted as `<br>`, and `<br/>` would be interpreted as `<br>>` which is
+obviously incorrect syntax. If you're like me, you're probably thinking «This
+is insane!». Unfortunately the authors of the HTML4 specification didn't think
+so, which is why this is part of the specification. Apparently, the browser
+vendors at the time weren't not convinced as well, which resulted in very poor
+browser support (which is not a bad thing arguably).
+
 
   - XML (and thus XHTML) implemented it sanely, namely the **Empty-Element tags**
     http://www.w3.org/TR/xml/#sec-starttags
