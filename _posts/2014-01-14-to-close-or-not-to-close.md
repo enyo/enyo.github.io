@@ -13,7 +13,8 @@ to write `<script src="script.js" />`? Well so have I, and
 my findings on that subject were a lot more interesting than anticipated
 (if for some strange reason you find stuff like this interesting).
 
-
+If you are not interested in the whole story, just jump to the section «validity»
+to get your answer.
 
 
 # Void elements
@@ -37,7 +38,7 @@ That's it. Those are **all** existing void elements.
 
 
 It is not, and has never been, valid HTML to write `<br></br>`, since this would
-imply that the `br` element accepts content (Writing `<br>Hello!</br>` has 
+imply that the `br` element accepts content (writing `<br>Hello!</br>` has 
 absolutely no meaning). However, it is very common to see both `<br>` and `<br />`.
 
 Although most people know that in **X**HTML it is *mandatory* to write `<br />` the
@@ -63,7 +64,7 @@ This is a short notation to avoid having to close a tag when the content
 of your element is simple text. With *NET* you can write `<quote/Quoted text/`
 instead of `<quote>Quoted text</quote>`.
 
-Naturally, elements that do not contain any text, can be written as `<quote//`
+As a side note, elements that do not contain any text, can be written as `<quote//`
 which is called [SHORTTAG NETENABL IMMEDNET](http://en.wikipedia.org/wiki/Standard_Generalized_Markup_Language#Other_features)
 and is the same as `<quote></quote>`.
 
@@ -73,153 +74,121 @@ obviously incorrect syntax. If you're like me, you're probably thinking «This
 is insane!». Unfortunately the authors of the HTML4 specification didn't think
 so, which is why this is part of the specification. Apparently, the browser
 vendors at the time weren't not convinced as well, which resulted in very poor
-browser support (which is not a bad thing arguably).
+browser support (which, in this case, is not a bad thing arguably).
+
+XML (and thus XHTML) recognized the madness of such a syntax, and did not include
+the *NET* or the *SHORTTAG NETENABL IMMEDNET* «features», but provided a sane
+syntax for void elements, namely the [Empty-Element tags](http://www.w3.org/TR/xml/#sec-starttags)
+which looks like this: `<br />`, which of course looks very natural which is why
+most developers thought it was the right way to write it.
 
 
-  - XML (and thus XHTML) implemented it sanely, namely the **Empty-Element tags**
-    http://www.w3.org/TR/xml/#sec-starttags
+Luckily HTML evolves and the people at the [World Wide Web Consortiumm](http://www.w3.org)
+(who are drafting and setting the standards throughout the web) are learning
+from their past mistakes as well. Which is why HTML5 makes *a lot* more sense.
+
+Right in the [introduction of the new HTML5 syntax](http://www.w3.org/TR/2009/WD-html5-diff-20090423/#syntax),
+the W3C says:
+
+> HTML 5 defines an HTML syntax that is compatible with HTML 4 and XHTML 1
+> documents published on the Web, but is not compatible with the more esoteric
+> SGML features of HTML 4, such as the NET syntax (i.e. <em/content/).
 
 
-  So HTML4 was `<foo//` and X(HT)ML was `<foo />`
+Yay for HTML5! 
 
+(I think they should have kept the cool *SHORTTAG* feature (`<strong>Hell yea</>`)
+but hey... at least HTML is not a complete mess any more)
 
-  - HTML5 spec:
-
-  http://www.w3.org/TR/2009/WD-html5-diff-20090423/#syntax
-
-  > HTML 5 defines an HTML syntax that is compatible with HTML 4 and XHTML 1
-  > documents published on the Web, but is not compatible with the more esoteric
-  > SGML features of HTML 4, such as the NET syntax (i.e. <em/content/).
-
-
-
-Sidenote: I think they should have kept the cool *SHORTTAG* feature: `<strong>Hell yea</>`
-
-
-Freaky? you betcha. Luckily this all doesn't really matter now.
 
 
 # Validity
 
+So back to the question of validity, the current [HTML5 specification for void elements](http://www.w3.org/TR/html-markup/syntax.html#void-element)
+is as follows:
 
-- Is any of the two more valid than the other
+Start tags consist of the following parts, in exactly the following order:  
 
-- link to spec -> completely optional
+- A "<" character.  
+- The element’s tag name.  
+- Optionally, one or more attributes, each of which must be preceded by one or more space characters.  
+- Optionally, one or more space characters.  
+- Optionally, a "/" character, which may be present only if the element is a void element.  
+- A ">" character.  
 
+This means that the `/` character has been rendered *optional* in HTML5, but
+it doesn't add any meaning. There is *absolutely no difference* between `<br>`
+and `<br />`.
 
 
 # Correctness
 
-Isn't /> still "more correct"
+Well, for those of you who are really addicted to X(HT)ML, you might think, «yeah,
+it's optional, but `<br />` is still 'more correct'», but I have to tell you:
+no it's not. Actually, one might argue that adding `/` to a void tag is an *ignored
+syntax error*. The possibility to write it has mostly been added for compatibility
+reasons and every browser and parser should not handle `<br>` and `<br />` any
+differently.
 
-- No, because it is kind of an **ignored syntax error**! At least it has absolutely no meaning.
-
-
-
-
-# Theoretical advantages
-
-
-
-User knowledge
-
-  Unexperienced coders must remember the list of void tags. But the list is short
-  and normally obvious.
-
-Easier parsing
-  - Editors know that they shouldn't propose `</foo>` when the previous element
-  was `<foo />`. If it's a void tag, and written `<foo>` the editor **has to know**
-  that it's a void tag.
-  But: all editors know this.
+[Google's styleguide](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml?showone=Document_Type#Document_Type)
+on that subject is also very clear that you should indeed *not* close void tags.
 
 
+# Theoretical disadvantages
+
+Of course, not closing void tags has it's disadvantages as well, but I think that they
+are not outweighing the advantage of having clean and terse void tags like `<meta>`.
+
+The first disadvantage of not closing void tags is that users have to have knowledge
+of the existing void tags. If, for example, you don't know what a `<img>` element
+is, you might be confused if you can't find any closing tags for it. But the list
+of void tags is very short and normally it's quite obvious which tags are void tags.
+
+The second disadvantage is that it gets more complicated for editors to get it
+right. They need to have a knowledge of void tags and a complete list to provide
+proper highlighting and code completion. If you write `<input>` in and editor,
+it *has to know* that there will never be a `</input>` following that.
+
+But it's very easy to implement, and I don't know any browser that doesn't get
+this right, so it's not a real disadvantage.
 
 
 # My opinion on void tags
 
-I don't see the reason for most void tags.
-
-`<meta name="" content="">` should be `<meta name="">CONTENT</meta>`.
-
-`<img alt="Alternative text" src="">` should be `<img src="">Alternative text</img>`.
-The `alt` attribute is mandatory anyway for crying out loud.
-
-`<input value="Content">` should be `<input>Content</input>` as is the case with `<textarea>`
-
-etc... 
-
-So really there are only a few void tags that should exist anyway.
-
-Of course the reason is backwards compatibility
+I think that the whole concept of void tags could be avoided completely by using
+the content of some tags instead of defining additional attributes. Let's take
+the `<img>` tag for example. It has a *mandatory* `alt` attribute, and for good
+reason: people who can't see the image (either because they are physically
+incapable or because their device can't display images) should at least now
+what image they could see there (and if you're adding an `img` tag solely for
+design purposes then you're doing something wrong anyway). So my question is:
+why isn't the *content* of the image tag the alternative tag? It seems rather
+obvious to me to write `<img src="doge.png">Image of doge</img>`. The same goes
+for `<meta>` tags which even have a `content` *attribute*! Why not just use the
+actual element content for that? `<input value="Value content">` should be
+`<input>Value content </input>` as is the case with `<textarea>`, etc...
 
 
-
-# The `<script>` tag
-
-Since it *can* contain content, it's not a void element, 
-I think there should be another tag. It's weird to write `<script src=""></script>`.
-
-`<link>` would have been perfect. Since `<script>` is **not** a void tag, it can
-not be closed like `<script></script>`.
+So really there are only a few void tags that should exist anyway, but obviously
+the W3C has to take backwards compatibility into account which makes changes of
+this kind much more difficult.
 
 
+# Final thoughts: the `<script>` tag
 
+The script tag has really been bothering me because it is such a verbose tag for
+such a simple directive. It seems wrong to write `<script src="my-script.js"></script>`
+since the content of this `script` tag has no logical correlation to `my-script.js`.
 
+The problem is, that `<script>` is **not** a void tag since you can inline JavaScript
+on your page and there are no "optional void tags".
 
+Using the `<link>` tag would have been perfect since it's already used for other
+imports and provides all the attributes necessary to include external
+files. Of course, as so often in the web, the reason it is not used is backwards
+compatibility, since you would exclude all old browsers that don't support that
+syntax.
 
-
-
-
-
-
-
-
-Sources
-=======
-
-
-http://stackoverflow.com/questions/69913/why-dont-self-closing-script-tags-work/3327807#3327807
-
-
-In case anyone's curious, the ultimate reason is that HTML was originally a dialect of SGML, which is XML's weird older brother. In SGML-land, tags can be specified in the DTD as either self-closing (e.g. BR, HR, INPUT), implicitly closeable (e.g. P, LI, TD), or explicitly closeable (e.g. TABLE, DIV, SCRIPT). XML of course has no concept of this.
-
-The tag-soup parsers used by modern browsers evolved out of this legacy, although their parsing model isn't pure SGML anymore. And of course your carefully-crafted XHTML is being treated as badly-written tag-soup/SGML unless you send it with an XML mime type. This is also why...
-
-    <p><div>hello</div></p>
-
-...gets interpreted by the browser as:
-
-    <p></p><div>hello</div>
-
-Stackoverflow:
-
-
-
-Not exactly.
-
-In HTML 4, <foo / means <foo> (which leads to <br /> meaning <br>&gt; and <title/hello/ meaning <title>hello</title>). Browsers did a very poor job of supporting this and the spec advises authors to avoid the syntax.
-
-In XHTML, <foo /> means <foo></foo>, but since this only works in XML parsing mode and most documents are served as text/html there are compatibility guidelines to follow.
-
-In HTML 5, <foo /> means <foo>. The slash is just syntactic sugar for people who are addicted to XML. The syntax is valid, but it is not a "self-closing tag". The distinction is important since (in the HTML syntax at least) <div /> means <div> in HTML 5 and not <div></div> as it does in XHTML.
-
-
-
-
-
-
-google recommendation: http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml?showone=Document_Type#Document_Type
-
-w3c spec: http://www.w3.org/TR/html-markup/syntax.html#void-element
-
-
-    Start tags consist of the following parts, in exactly the following order:
-    A "<" character.
-    The element’s tag name.
-    Optionally, one or more attributes, each of which must be preceded by one or more space characters.
-    Optionally, one or more space characters.
-    Optionally, a "/" character, which may be present only if the element is a void element.
-    A ">" character.
 
 
 
