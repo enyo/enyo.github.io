@@ -1,16 +1,15 @@
 ---
 layout: post
 title:  "To close or not to close"
-date:   2014-01-14 01:30:50
+date:   2014-02-03 07:40:00
 categories: web programming
-invisible: true
 ---
 
 
 Have you ever wondered if it's better to "close" a `br` or `input` tag like
 `<br />` or if it's better to just write `<br>` in HTML5? Or why it's not correct
 to write `<script src="script.js" />`? Well so have I, and
-my findings on that subject were a lot more interesting than anticipated
+my findings on the subject where a lot more interesting than I anticipated
 (if for some strange reason you find stuff like this interesting).
 
 If you are not interested in the whole story, just jump to the section «validity»
@@ -34,7 +33,7 @@ The lesser known are:
 
 `<area>` `<base>` `<col>` `<command>` `<embed>` `<keygen>` `<param>` `<source>` `<track>` `<wbr>`
 
-That's it. Those are **all** existing void elements.
+That's it. Those are **all** of the existing void elements.
 
 
 It is not, and has never been, valid HTML to write `<br></br>`, since this would
@@ -74,7 +73,7 @@ obviously incorrect syntax. If you're like me, you're probably thinking «This
 is insane!». Unfortunately the authors of the HTML4 specification didn't think
 so, which is why this is part of the specification. Apparently, the browser
 vendors at the time weren't not convinced as well, which resulted in very poor
-browser support (which, in this case, is not a bad thing arguably).
+browser support (which, in this case, is arguably not a bad thing).
 
 XML (and thus XHTML) recognized the madness of such a syntax, and did not include
 the *NET* or the *SHORTTAG NETENABL IMMEDNET* «features», but provided a sane
@@ -125,7 +124,7 @@ and `<br />`.
 
 Well, for those of you who are really addicted to X(HT)ML, you might think, «yeah,
 it's optional, but `<br />` is still 'more correct'», but I have to tell you:
-no it's not. Actually, one might argue that adding `/` to a void tag is an *ignored
+it is not. Actually, one might argue that adding `/` to a void tag is an *ignored
 syntax error*. The possibility to write it has mostly been added for compatibility
 reasons and every browser and parser should not handle `<br>` and `<br />` any
 differently.
@@ -136,8 +135,8 @@ on that subject is also very clear that you should indeed *not* close void tags.
 
 # Theoretical disadvantages
 
-Of course, not closing void tags has it's disadvantages as well, but I think that they
-are not outweighing the advantage of having clean and terse void tags like `<meta>`.
+Of course, not closing void tags has it's disadvantages as well, but I think
+that they do not outweigh the advantage of having clean and terse void tags like `<meta>`.
 
 The first disadvantage of not closing void tags is that users have to have knowledge
 of the existing void tags. If, for example, you don't know what a `<img>` element
@@ -146,7 +145,7 @@ of void tags is very short and normally it's quite obvious which tags are void t
 
 The second disadvantage is that it gets more complicated for editors to get it
 right. They need to have a knowledge of void tags and a complete list to provide
-proper highlighting and code completion. If you write `<input>` in and editor,
+proper highlighting and code completion. If you write `<input>` in an editor,
 it *has to know* that there will never be a `</input>` following that.
 
 But it's very easy to implement, and I don't know any browser that doesn't get
