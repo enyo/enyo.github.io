@@ -158,14 +158,14 @@ I think that the whole concept of void tags could be avoided completely by using
 the content of some tags instead of defining additional attributes. Let's take
 the `<img>` tag for example. It has a *mandatory* `alt` attribute, and for good
 reason: people who can't see the image (either because they are physically
-incapable or because their device can't display images) should at least now
+incapable or because their device can't display images) should at least know
 what image they could see there (and if you're adding an `img` tag solely for
 design purposes then you're doing something wrong anyway). So my question is:
 why isn't the *content* of the image tag the alternative tag? It seems rather
 obvious to me to write `<img src="doge.png">Image of doge</img>`. The same goes
 for `<meta>` tags which even have a `content` *attribute*! Why not just use the
 actual element content for that? `<input value="Value content">` should be
-`<input>Value content </input>` as is the case with `<textarea>`, etc...
+`<input>Value content</input>` as is the case with `<textarea>`, etc...
 
 
 So really there are only a few void tags that should exist anyway, but obviously
