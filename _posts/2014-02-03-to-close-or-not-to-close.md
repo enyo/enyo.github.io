@@ -82,7 +82,7 @@ which looks like this: `<br />`, which of course looks very natural which is why
 most developers thought it was the right way to write it.
 
 
-Luckily HTML evolves and the people at the [World Wide Web Consortiumm](http://www.w3.org)
+Luckily HTML evolves and the people at the [World Wide Web Consortium](http://www.w3.org)
 (who are drafting and setting the standards throughout the web) are learning
 from their past mistakes as well. Which is why HTML5 makes *a lot* more sense.
 
