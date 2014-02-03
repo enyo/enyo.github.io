@@ -72,7 +72,7 @@ be interpreted as `<br>`, and `<br/>` would be interpreted as `<br>>` which is
 obviously incorrect syntax. If you're like me, you're probably thinking «This
 is insane!». Unfortunately the authors of the HTML4 specification didn't think
 so, which is why this is part of the specification. Apparently, the browser
-vendors at the time weren't not convinced as well, which resulted in very poor
+vendors at the time were not convinced as well, which resulted in very poor
 browser support (which, in this case, is arguably not a bad thing).
 
 XML (and thus XHTML) recognized the madness of such a syntax, and did not include
