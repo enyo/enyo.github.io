@@ -800,6 +800,9 @@ body > footer p {
   position: relative;
   margin: 1em auto;
 }
+.posts .post-preview {
+  margin: 0 0 4em;
+}
 .posts header {
   padding-bottom: 1px;
   border-bottom: 1px solid #f34a53;
