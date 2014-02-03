@@ -148,7 +148,7 @@ right. They need to have a knowledge of void tags and a complete list to provide
 proper highlighting and code completion. If you write `<input>` in an editor,
 it *has to know* that there will never be a `</input>` following that.
 
-But it's very easy to implement, and I don't know any browser that doesn't get
+But it's very easy to implement, and I don't know any editor that doesn't get
 this right, so it's not a real disadvantage.
 
 
