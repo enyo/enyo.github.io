@@ -864,6 +864,15 @@ body > footer p {
 .posts footer {
   text-align: right;
 }
+.posts footer a.disqus-count {
+  text-decoration: none;
+  font-size: 0.8em;
+  color: #bbb;
+  float: left;
+}
+.posts footer a.disqus-count:hover {
+  color: #666;
+}
 .posts footer a.continue-reading {
   background: #f34a53;
   -webkit-border-radius: 2px;
