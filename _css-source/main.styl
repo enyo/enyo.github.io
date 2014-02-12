@@ -6,7 +6,10 @@
 @import "functions"
 
 main-color = #F34A53
-content-width = 552px
+content-width = 700px
+content-side-width = 552px
+content-padding = 20px // The padding on the sides
+
 
 /* Global Reset */
 
@@ -20,7 +23,8 @@ html, body
   height 100% 
 
 html
-  font-size 17px
+  font-size 18px
+  // bigger font sizes are defined in the media queries
   font-family "Helvetica Neue", Helvetica, Arial, sans-serif
   font-weight 200
 
@@ -33,9 +37,16 @@ html
 
 body
 
-  background url("../images/background_tile.png") repeat center
+  font-smoothing antialiased
+
+  // background url("../images/background_tile.png") repeat center
+  background #fcfcfc
 
   color #666
+
+  max-width 100%
+  overflow-x hidden
+
 
 
 /**
@@ -43,18 +54,20 @@ body
  */
 h1, h2, h3
   font-family "brandon-grotesque", Arial, sans-serif
-  font-size 3em
+  font-size 2em
   line-height 1.4
-  font-weight 300
+  font-weight 500
   letter-spacing 0.2em
   text-transform uppercase
   text-align center
 
+  font-smoothing subpixel-antialiased
+
 
 h2
-  font-size 2.8em
+  font-size 1.8em
 h3
-  font-size 2em
+  font-size 1.5em
 
 
 a
@@ -63,7 +76,7 @@ a
 p
   a
     text-decoration none
-    border-bottom 1px solid main-color
+    border-bottom 2px solid main-color
     &:hover
       border-bottom-color black
 
@@ -84,7 +97,10 @@ p
 aside
   font-family "calluna", serif
   line-height 1.8
-  
+
+code
+  font-size 0.8em
+
 p, ul, ol
   line-height 1.8
   margin 2em 0
@@ -97,18 +113,19 @@ p, ul, ol
     border 1px solid main-color
     padding 0em 0.3em
     border-radius 2px
-    margin 0 0.3em
+    margin 0 0.15em
     line-height 1.6em
-    font-size 0.9em
+    font-size 0.8em
     background rgba(main-color, 0.04)
 
 blockquote
   margin 2em 0
-  border 3px solid main-color
-  border-left none
-  border-right none
+  // border 3px solid main-color
+  // border-left none
+  // border-right none
   color main-color
-  font-size 1.2em
+  font-size 1.5em
+  font-style italic
 
   p
     color @color
@@ -140,22 +157,27 @@ blockquote
 
 .posts
 
-  centered-content()  
-  margin 1em auto
+  margin-top 1em
+  margin-bottom @margin-top
+
+  // padding 0 0.5em
 
   .post-preview
     margin 0 0 4em
 
+  header time, p, footer
+    centered-content()
+
+
   header
-    padding-bottom 1px
-    border-bottom 1px solid main-color
     position relative
 
     margin-bottom 3em
+    text-align center
 
     h1
-      background main-color
-      color white
+      display inline-block
+      color main-color
       padding 0 0.4em
       border-radius 2px
       a
@@ -165,15 +187,17 @@ blockquote
 
 
     time
-      position absolute
-      bottom -30px
-      line-height 30px
-      height 30px
+      display block
+    time span
+      display block
+      line-height 3em
       font-size 0.8rem
       color main-color
       font-family "brandon-grotesque", Arial, sans-serif
       font-weight 400
       text-transform uppercase
+      padding-bottom 1px
+      border-bottom 1px solid main-color
 
 
   footer
@@ -190,4 +214,15 @@ blockquote
       padding 0 0.5em
       font-size 0.8em
       display inline-block
+      // Light font on dark background needs to be subpixeled
+      font-smoothing subpixel-antialiased
+
+
+
+@media (min-width: 600px)
+  html
+    font-size 20px
+@media (min-width: 1000px)
+  html
+    font-size 22px
 

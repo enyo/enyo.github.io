@@ -200,11 +200,9 @@ site, the language really starts to shine the bigger your project gets.
   be serving a pure HTML site without CSS. Why? Because: 
 </p>
 
-<section>
-  <blockquote><p>
-    I despise outdated browsers
-  </p></blockquote>
-</section>
+<blockquote><p>
+  I despise outdated browsers
+</p></blockquote>
 
 <p>
   In my line of work I'm constantly excited about new features the web has to offer
