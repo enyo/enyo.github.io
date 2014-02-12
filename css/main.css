@@ -631,6 +631,9 @@ body > footer p {
   font-weight: 600;
 }
 #post header time {
+  font-family: "brandon-grotesque", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
   display: block;
 }
 #post .content > p,
@@ -814,7 +817,10 @@ body > footer p {
   margin-bottom: 1em;
 }
 .posts .post-preview {
-  margin: 0 0 4em;
+  margin: 0 0 10em;
+}
+.posts .post-preview:last-of-type {
+  margin-bottom: 2em;
 }
 .posts header time,
 .posts p,
@@ -827,7 +833,7 @@ body > footer p {
 }
 .posts header {
   position: relative;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   text-align: center;
 }
 .posts header h1 {
@@ -852,7 +858,7 @@ body > footer p {
   font-family: "brandon-grotesque", Arial, sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  padding-bottom: 1px;
+  padding-bottom: 2em;
   border-bottom: 1px solid #f34a53;
 }
 .posts footer {
