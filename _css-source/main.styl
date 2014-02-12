@@ -138,7 +138,6 @@ blockquote
 
 
 #main
-  padding-top 5em
   padding-bottom 16em
 
 @import "header"
@@ -163,9 +162,12 @@ blockquote
   // padding 0 0.5em
 
   .post-preview
-    margin 0 0 10em
+    margin 0 0 1em
+    padding-bottom 5em
+    padding-top 5em
     &:last-of-type
-      margin-bottom 2em
+      margin-bottom 0em
+      padding-bottom 3em
 
   header time, p, footer
     centered-content()
@@ -210,24 +212,49 @@ blockquote
       font-size 0.8em
       color #bbb
       float left
+      line-height 1.5em
       &:hover
         color #666
 
     a.continue-reading
-      background main-color
-      border-radius 2px
-      color white
-      font-family "brandon-grotesque", Arial, sans-serif
-      font-weight 400
-      text-transform uppercase
-      text-decoration none
-      padding 0 0.5em
-      font-size 0.8em
+      transform-origin center top
+      perspective 300
       display inline-block
-      // Light font on dark background needs to be subpixeled
-      font-smoothing subpixel-antialiased
+      text-decoration none
+
+      span
+        transform-origin center top
+        background main-color
+        text-decoration none
+        border-radius 2px
+        color white
+        font-family "brandon-grotesque", Arial, sans-serif
+        font-weight 400
+        text-transform uppercase
+        padding 0 0.5em
+        font-size 0.8em
+        display inline-block
+        // Light font on dark background needs to be subpixeled
+        font-smoothing subpixel-antialiased
+
+        display block
+        opacity 0
+        transform rotateY(-10deg) translateX(-10px)
+        transition transform 60ms linear, opacity 60ms linear
+
+  .post-preview:hover
+    footer .continue-reading span
+      opacity 1
+      transition transform 400ms cubic-bezier(.22,1.38,.64,1.24), opacity 200ms linear
+      transform rotateY(0) translateX(0px)
 
 
+@media (max-width: 600px)
+  .posts .post-preview .continue-reading
+    span
+      transform none
+      opacity 1
+      transition none
 
 @media (min-width: 600px)
   html

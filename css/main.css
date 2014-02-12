@@ -313,7 +313,6 @@ blockquote p {
  * Basic layout
  */
 #main {
-  padding-top: 5em;
   padding-bottom: 16em;
 }
 body > header h1 br {
@@ -594,7 +593,7 @@ body > footer {
   background: #000;
   color: #eee;
   text-align: center;
-  padding: 8em 0 4em 0;
+  padding: 8em 0 6em 0;
   font-weight: 100;
   letter-spacing: 0.1em;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -602,14 +601,8 @@ body > footer {
 body > footer p {
   margin: 0.5em 0;
 }
-#site-home #main {
-  padding-top: 10em;
-}
 #site-home > header {
   height: 800px;
-}
-#main {
-  padding-top: 0;
 }
 #post {
   margin: 0 auto 1em;
@@ -817,10 +810,13 @@ body > footer p {
   margin-bottom: 1em;
 }
 .posts .post-preview {
-  margin: 0 0 10em;
+  margin: 0 0 1em;
+  padding-bottom: 5em;
+  padding-top: 5em;
 }
 .posts .post-preview:last-of-type {
-  margin-bottom: 2em;
+  margin-bottom: 0em;
+  padding-bottom: 3em;
 }
 .posts header time,
 .posts p,
@@ -869,23 +865,88 @@ body > footer p {
   font-size: 0.8em;
   color: #bbb;
   float: left;
+  line-height: 1.5em;
 }
 .posts footer a.disqus-count:hover {
   color: #666;
 }
 .posts footer a.continue-reading {
+  -webkit-transform-origin: center top;
+  -moz-transform-origin: center top;
+  -o-transform-origin: center top;
+  -ms-transform-origin: center top;
+  transform-origin: center top;
+  -webkit-perspective: 300;
+  -moz-perspective: 300;
+  -ms-perspective: 300;
+  perspective: 300;
+  display: inline-block;
+  text-decoration: none;
+}
+.posts footer a.continue-reading span {
+  -webkit-transform-origin: center top;
+  -moz-transform-origin: center top;
+  -o-transform-origin: center top;
+  -ms-transform-origin: center top;
+  transform-origin: center top;
   background: #f34a53;
+  text-decoration: none;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   color: #fff;
   font-family: "brandon-grotesque", Arial, sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  text-decoration: none;
   padding: 0 0.5em;
   font-size: 0.8em;
   display: inline-block;
   -webkit-font-smoothing: subpixel-antialiased;
+  display: block;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transform: rotateY(-10deg) translateX(-10px);
+  -moz-transform: rotateY(-10deg) translateX(-10px);
+  -o-transform: rotateY(-10deg) translateX(-10px);
+  -ms-transform: rotateY(-10deg) translateX(-10px);
+  transform: rotateY(-10deg) translateX(-10px);
+  -webkit-transition: -webkit-transform 60ms linear, opacity 60ms linear;
+  -moz-transition: -moz-transform 60ms linear, opacity 60ms linear;
+  -o-transition: -o-transform 60ms linear, opacity 60ms linear;
+  -ms-transition: -ms-transform 60ms linear, opacity 60ms linear;
+  transition: transform 60ms linear, opacity 60ms linear;
+}
+.posts .post-preview:hover footer .continue-reading span {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.22, 1.38, 0.64, 1.24), opacity 200ms linear;
+  -moz-transition: -moz-transform 400ms cubic-bezier(0.22, 1.38, 0.64, 1.24), opacity 200ms linear;
+  -o-transition: -o-transform 400ms cubic-bezier(0.22, 1.38, 0.64, 1.24), opacity 200ms linear;
+  -ms-transition: -ms-transform 400ms cubic-bezier(0.22, 1.38, 0.64, 1.24), opacity 200ms linear;
+  transition: transform 400ms cubic-bezier(0.22, 1.38, 0.64, 1.24), opacity 200ms linear;
+  -webkit-transform: rotateY(0) translateX(0px);
+  -moz-transform: rotateY(0) translateX(0px);
+  -o-transform: rotateY(0) translateX(0px);
+  -ms-transform: rotateY(0) translateX(0px);
+  transform: rotateY(0) translateX(0px);
+}
+@media (max-width: 600px) {
+  .posts .post-preview .continue-reading span {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
 }
 @media (min-width: 600px) {
   html {
