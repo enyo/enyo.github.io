@@ -120,7 +120,7 @@ it doesn't add any meaning. There is *absolutely no difference* between `<br>`
 and `<br />`.
 
 
-# Correctness
+# Correct<wbr>ness
 
 Well, for those of you who are really addicted to X(HT)ML, you might think, «yeah,
 it's optional, but `<br />` is still 'more correct'», but I have to tell you:
@@ -133,7 +133,7 @@ differently.
 on that subject is also very clear that you should indeed *not* close void tags.
 
 
-# Theoretical disadvantages
+# Theo<wbr>retical disad<wbr>vantages
 
 Of course, not closing void tags has it's disadvantages as well, but I think
 that they do not outweigh the advantage of having clean and terse void tags like `<meta>`.
