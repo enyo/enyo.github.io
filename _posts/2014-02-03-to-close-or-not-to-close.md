@@ -78,7 +78,7 @@ browser support (which, in this case, is arguably not a bad thing).
 XML (and thus XHTML) recognized the madness of such a syntax, and did not include
 the *NET* or the *SHORTTAG NETENABL IMMEDNET* «features», but provided a sane
 syntax for void elements, namely the [Empty-Element tag](http://www.w3.org/TR/xml/#sec-starttags)
-that looks like this: `<br />`. It looks very natural which is why
+that looks like this: `<br />`. It seems very natural which is why
 most developers thought it was the right way to write it.
 
 
