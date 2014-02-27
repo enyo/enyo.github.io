@@ -9,7 +9,7 @@ categories: web programming
 Have you ever wondered if it's better to "close" a `br` or `input` tag like
 `<br />` or if it's better to just write `<br>` in HTML5? Or why it's not correct
 to write `<script src="script.js" />`? Well so have I, and
-my findings on the subject where a lot more interesting than I anticipated
+my findings on the subject were a lot more interesting than I anticipated
 (if for some strange reason you find stuff like this interesting).
 
 If you are not interested in the whole story, just jump to the section «validity»
