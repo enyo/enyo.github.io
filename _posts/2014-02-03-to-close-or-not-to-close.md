@@ -135,7 +135,7 @@ on that subject is also very clear that you should indeed *not* close void tags.
 
 # Theo<wbr>retical disad<wbr>vantages
 
-Of course, not closing void tags has it's disadvantages as well, but I think
+Of course, not closing void tags has its disadvantages as well, but I think
 that they do not outweigh the advantage of having clean and terse void tags like `<meta>`.
 
 The first disadvantage of not closing void tags is that users have to have knowledge
