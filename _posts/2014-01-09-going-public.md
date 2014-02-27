@@ -183,7 +183,7 @@ Dart
 
 Using dart for the simple scripts on this website is really not necessary,
 since, at the moment, there aren't more than 30 lines of code, but I wanted to
-start using Dart in production and enjoy working with it, so I though: why not?
+start using Dart in production and enjoy working with it, so I thought: why not?
 
 If you are completely unfamiliar with dart, I highly encourage you to check it
 out. While it most definitely is not a huge benefit for small scripts as in this
