@@ -177,7 +177,9 @@ this kind much more difficult.
 
 The script tag has really been bothering me because it is such a verbose tag for
 such a simple directive. It seems wrong to write `<script src="my-script.js"></script>`
-since the content of this `script` tag has no logical correlation to `my-script.js`.
+since the content of this `script` tag has no logical correlation to `my-script.js` (and
+the [html specification](http://www.w3.org/html/wg/drafts/html/master/scripting-1.html#the-script-element)
+ disallows to add both, content and the `src` attribute).
 
 The problem is, that `<script>` is **not** a void tag since you can inline JavaScript
 on your page and there are no "optional void tags".
