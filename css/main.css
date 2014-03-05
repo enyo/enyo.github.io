@@ -321,7 +321,7 @@ body > header h1 br {
   display: none;
 }
 body > header {
-  height: 800px;
+  height: 100vh;
   color: #fff;
   text-align: center;
   padding: 2em 0;
