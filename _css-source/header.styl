@@ -2,88 +2,44 @@ body > header h1 br
   display none
 
 
+smallest-letter-distance = 0.15em
+
 
 /**
  * The default header on content sites
  */
 
-body > header
-  // background main-color
-  // background linear-gradient(-45deg, #6023D2, #D321AC, #F34A53)
-  background linear-gradient(-25deg, #A6318C, #E43541, #F0318B)
-  color white
-  text-align center
-  padding 2em 0
+body
 
-  h1
-    font-weight 200
-    font-size 2.4em
-    // The wraping is done by the <br> in the middle of the header
-    white-space nowrap
-  span
-    position relative
-    display inline-block
-
-  a
-    color white
-    text-decoration none
-
-
-smallest-letter-distance = 0.15em
-
-/**
- * The nice big header with background image.
- */
-body#site-home
-  
-  &.header-loaded
-    > header
-      &:before
-        opacity 0
-      h1
-        opacity 1
-        // letter-spacing 1em
-        transform rotatex(0deg)
-
-        // In the @media query below there is another distribution
-        span
-          &:nth-of-type(1)
-            transform translateX(-(smallest-letter-distance*5))
-          &:nth-of-type(2)
-            transform translateX(-(smallest-letter-distance*4))
-          &:nth-of-type(3)
-            transform translateX(-(smallest-letter-distance*3))
-          &:nth-of-type(4)
-            transform translateX(-(smallest-letter-distance*2))
-          &:nth-of-type(5)
-            transform translateX(-(smallest-letter-distance/2))
-
-          &:nth-of-type(6)
-            transform translateX((smallest-letter-distance/2))
-          &:nth-of-type(7)
-            transform translateX(smallest-letter-distance*2)
-          &:nth-of-type(8)
-            transform translateX(smallest-letter-distance*3)
-          &:nth-of-type(9)
-            transform translateX(smallest-letter-distance*4)
-          &:nth-of-type(10)
-            transform translateX(smallest-letter-distance*5)
-
-
+  /**
+   * The nice big header with background image.
+   */
   > header
+    // background main-color
+    // background linear-gradient(-45deg, #6023D2, #D321AC, #F34A53)
+    // background linear-gradient(-25deg, #A6318C, #E43541, #F0318B)
+
+    // Just setting a random height before JS kicks in.
+    height 800px
+
+    color white
+    text-align center
+    padding 2em 0
+
     background black no-repeat center
-    /*
-    background-image url("/images/river_cover.jpg")
-    background-image url("/images/rock_cover.jpg")
-    background-image url("/images/sky_cover.jpg")
-    background-image url("/images/lamp_cover.jpg")
-    */
 
     background-size cover
     position relative
     perspective 600
     perspective-origin 50%
 
+    a
+      color white
+      text-decoration none
+      display block
+
+
+    // To fade in / out the background
     &:before
       content " "
       position absolute
@@ -96,25 +52,32 @@ body#site-home
       transition opacity 0.6s linear
     
       
-    
-
-    h1
-      font-family "brandon-grotesque", Arial, sans-serif
-      font-weight 100
-      opacity 0
-      display block
-      color white
-      text-shadow 1px 2px 0 rgba(0, 0, 0, 0.6)
-      text-align center
-      font-size 80px
-      line-height 2
-      height 80px
+    .links
       position absolute
       top 0
       bottom 0
       left 0
       right 0
       margin auto
+      height 160px
+      
+
+    h1
+      font-family "brandon-grotesque", Arial, sans-serif
+      font-weight 100
+
+      font-size 2.4em
+      // The wraping is done by the <br> in the middle of the header
+      white-space nowrap
+
+      opacity 0
+      display block
+      color white
+      text-shadow 1px 2px 0 rgba(0, 0, 0, 0.1)
+      text-align center
+      font-size 80px
+      line-height 2
+      height 160px
       letter-spacing 0.9em
 
       padding-left 0.9em /* To account for letter spacing */
@@ -127,30 +90,62 @@ body#site-home
 
       // The spans are used to make the letters expand
       span
+        position relative
+        display inline-block
+
         transition transform 2s ease-out
         transform translateX(0)
 
-      a
-        // It's confusing otherwise. People will think that this is the entrance
-        // to the site.
-        cursor default
-        pointer-events none
+
+   
+
+body.header-loaded > header
+  &:before
+    opacity 0
+  h1
+    opacity 1
+    // letter-spacing 1em
+    transform rotatex(0deg)
+
+    // In the @media query below there is another distribution
+    span
+      &:nth-of-type(1)
+        transform translateX(-(smallest-letter-distance*5))
+      &:nth-of-type(2)
+        transform translateX(-(smallest-letter-distance*4))
+      &:nth-of-type(3)
+        transform translateX(-(smallest-letter-distance*3))
+      &:nth-of-type(4)
+        transform translateX(-(smallest-letter-distance*2))
+      &:nth-of-type(5)
+        transform translateX(-(smallest-letter-distance/2))
+
+      &:nth-of-type(6)
+        transform translateX((smallest-letter-distance/2))
+      &:nth-of-type(7)
+        transform translateX(smallest-letter-distance*2)
+      &:nth-of-type(8)
+        transform translateX(smallest-letter-distance*3)
+      &:nth-of-type(9)
+        transform translateX(smallest-letter-distance*4)
+      &:nth-of-type(10)
+        transform translateX(smallest-letter-distance*5)
 
 
-      
+        
 
   
 
 
 
 @media (max-width: 1450px)
-  body#site-home > header h1
+  body > header h1
     font-size 60px
   
 
 
 @media (max-width: 1024px)
-  body#site-home > header h1
+  body > header h1
     font-size 40px
   
 
@@ -162,7 +157,7 @@ body#site-home
       display block
 
 
-  body#site-home.header-loaded > header h1
+  body.header-loaded > header h1
     // Since there is a line break now, the letters have to be distributed
     // differently    
     font-weight 300
@@ -185,7 +180,7 @@ body#site-home
 
 
 
-  body#site-home > header h1
+  body > header h1
     font-size 30px
     height 120px
 

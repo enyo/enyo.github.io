@@ -7,6 +7,7 @@ library side_images;
 
 
 import "dart:html";
+import "dart:math";
 
 
 ElementList images;
@@ -39,7 +40,8 @@ _updateImageClasses() {
  
   windowHeight = document.body.getBoundingClientRect().height;
   
-  scrollTop = document.body.scrollTop;
+  // Firefox and Chrome seem to differ on this.
+  scrollTop = max(document.body.scrollTop, document.documentElement.scrollTop);
   
   for (Element image in images) {
     if (_inViewport(image)) {

@@ -500,11 +500,13 @@ var $$ = {};
   },
   JSInt: {
     "^": "int/JSNumber;",
+    $isdouble: true,
     $isnum: true,
     $isint: true
   },
   JSDouble: {
     "^": "double/JSNumber;",
+    $isdouble: true,
     $isnum: true
   },
   JSString: {
@@ -6690,6 +6692,35 @@ var $$ = {};
       }}
   }
 }],
+["dart.math", "dart:math", , P, {
+  "^": "",
+  max: function(a, b) {
+    var t1;
+    if (typeof a !== "number")
+      throw H.wrapException(new P.ArgumentError(a));
+    if (typeof b !== "number")
+      throw H.wrapException(new P.ArgumentError(b));
+    if (a > b)
+      return a;
+    if (a < b)
+      return b;
+    if (typeof b === "number") {
+      if (typeof a === "number")
+        if (a === 0)
+          return a + b;
+      if (isNaN(b))
+        return b;
+      return a;
+    }
+    if (b === 0)
+      t1 = a === 0 ? 1 / a < 0 : a < 0;
+    else
+      t1 = false;
+    if (t1)
+      return b;
+    return a;
+  }
+}],
 ["dart.typed_data.implementation", "dart:_native_typed_data", , H, {
   "^": "",
   NativeTypedData: {
@@ -6783,42 +6814,34 @@ var $$ = {};
 }],
 ["header", "header.dart", , Q, {
   "^": "",
-  wrapHeaderLetters: function() {
-    var linkElement = document.querySelector("body > header h1 a");
-    J.set$innerHtml$x(linkElement, H.setRuntimeTypeInfo(new H.MappedListIterable(linkElement.textContent.split(""), new Q.wrapHeaderLetters_closure()), [null, null]).join$0(0));
-  },
-  wrapHeaderLetters_closure: {
-    "^": "Closure:8;",
-    call$1: function(letter) {
-      return "<span>" + H.S(letter) + "</span>";
-    }
-  }
-}],
-["home_header", "home_header.dart", , T, {
-  "^": "",
-  initHeaderIfHome: function() {
+  initHeader: function() {
     var t1, backgroundImage, e;
-    if (document.body.id !== "site-home")
-      return;
     t1 = document.querySelector("body > header");
     $.headerElement = t1;
+    $.linksElement = t1.querySelector(".links");
+    Q._wrapHeaderLetters();
+    t1 = $.headerElement;
     t1.toString;
     backgroundImage = t1.getAttribute("data-" + new W._DataAttributeMap(new W._ElementAttributeMap(t1))._toHyphenedName$1("image"));
     e = document.createElement("img", null);
     t1 = J.getInterceptor$x(e);
     t1.set$src(e, backgroundImage);
     t1 = t1.get$onLoad(e);
-    t1.get$first(t1).then$1(new T.initHeaderIfHome_closure(backgroundImage));
+    t1.get$first(t1).then$1(new Q.initHeader_closure(backgroundImage));
     t1 = H.setRuntimeTypeInfo(new W._EventStream(window, C.EventStreamProvider_resize._eventType, false), [null]);
-    H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new T.initHeaderIfHome_closure0()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
-    T._updateHeaderSize();
+    H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new Q.initHeader_closure0()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
+    Q._updateHeaderSize();
+  },
+  _wrapHeaderLetters: function() {
+    var linkElement = $.headerElement.querySelector("h1 a");
+    J.set$innerHtml$x(linkElement, H.setRuntimeTypeInfo(new H.MappedListIterable(linkElement.textContent.split(""), new Q._wrapHeaderLetters_closure()), [null, null]).join$0(0));
   },
   _updateHeaderSize: function() {
     var t1 = J.get$height$x(document.body.getBoundingClientRect());
     $.windowHeight0 = t1;
-    J.set$height$x($.headerElement.style, H.S(t1) + "px");
+    J.set$height$x($.headerElement.style, H.S(P.max(t1, J.get$height$x($.linksElement.getBoundingClientRect()))) + "px");
   },
-  initHeaderIfHome_closure: {
+  initHeader_closure: {
     "^": "Closure:8;backgroundImage_0",
     call$1: function(e) {
       var t1;
@@ -6828,10 +6851,16 @@ var $$ = {};
       new W._ElementCssClassSet(t1).add$1(0, "header-loaded");
     }
   },
-  initHeaderIfHome_closure0: {
+  initHeader_closure0: {
     "^": "Closure:8;",
     call$1: function(e) {
-      return T._updateHeaderSize();
+      return Q._updateHeaderSize();
+    }
+  },
+  _wrapHeaderLetters_closure: {
+    "^": "Closure:8;",
+    call$1: function(letter) {
+      return (J.$eq(letter, "G") ? "<br/>" : "") + "<span>" + H.S(letter) + "</span>";
     }
   }
 }],
@@ -6887,8 +6916,7 @@ var $$ = {};
 ["", "main.dart", , F, {
   "^": "",
   main: [function() {
-    Q.wrapHeaderLetters();
-    T.initHeaderIfHome();
+    Q.initHeader();
     F.initSideImagesUnlessHome();
   }, "call$0", "main$closure", 0, 0, 6]
 },
@@ -6906,7 +6934,7 @@ var $$ = {};
   _updateImageClasses: function() {
     var t1, image, t2;
     $.windowHeight = J.get$height$x(document.body.getBoundingClientRect());
-    $.scrollTop = document.body.scrollTop;
+    $.scrollTop = P.max(document.body.scrollTop, document.documentElement.scrollTop);
     for (t1 = $.images, t1 = t1.get$iterator(t1); t1.moveNext$0();) {
       image = t1._current;
       t2 = J.getInterceptor$x(image);
@@ -7373,6 +7401,7 @@ $.Element__parseRange = null;
 $.Element__defaultValidator = null;
 $.Element__defaultSanitizer = null;
 $.headerElement = null;
+$.linksElement = null;
 $.windowHeight0 = null;
 $.Device__isOpera = null;
 $.Device__isWebKit = null;

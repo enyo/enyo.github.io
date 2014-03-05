@@ -1,33 +1,38 @@
 
+#site-post
+  header
+
+    .links
+      height 23rem
+
+      h1
+        margin-bottom 2em
+
+      h2
+        font-size 2.5em
+        display inline-block
+        margin 0 0 0.5em 0
+        color white
+        padding 0 0.4em
+        border-radius 2px
+        font-weight 600
+
+      time 
+        font-family "brandon-grotesque", Arial, sans-serif
+        font-weight 400
+        text-transform uppercase
+        display block
+
+    a#post-start
+      position absolute
+      bottom 1.5rem
+      left 0
+
+
+
 #post
 
   margin 0 auto 1em
-
-  header
-    // centered-content()
-    padding-top 5em
-    padding-bottom 4em
-
-    // border-bottom 6px solid black
-
-    margin-bottom 3em
-    text-align center
-
-    h1
-      font-size 2.5em
-      display inline-block
-      margin 0 0 0.5em 0
-      color black
-      padding 0 0.4em
-      border-radius 2px
-      font-weight 600
-
-    time 
-      font-family "brandon-grotesque", Arial, sans-serif
-      font-weight 400
-      text-transform uppercase
-      display block
-
 
   .content
     >
@@ -68,7 +73,7 @@
       &.dark 
         color white
         // Light font on dark background needs to be subpixeled
-        font-smoothing subpixel-antialiased
+        fontSmoothing(true)
         text-shadow 0 1px 0 rgba(0, 0, 0, 0.4)
 
         aside.copyright

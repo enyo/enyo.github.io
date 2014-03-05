@@ -1,7 +1,6 @@
 ---
-layout: default
+layout: home
 title: Home
-type: home
 ---
 
 
@@ -11,7 +10,7 @@ type: home
   {% for post in site.posts %}{% if post.invisible != true %}
     <article class="post-preview">
       <header>
-        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        <h1><a href="{{ post.url }}#post-start">{{ post.title }}</a></h1>
         <time datetime="{{ post.date | date: "%F %R" }}"><span>{{ post.date | date_to_string }}</span></time>
       </header>
 
@@ -19,7 +18,7 @@ type: home
 
       <footer class="actions">
         <a class="disqus-count" href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
-        <a class="continue-reading" href="{{ post.url }}"><span>Continue reading &gt;</span></a>
+        <a class="continue-reading" href="{{ post.url }}#post-start"><span>Continue reading &gt;</span></a>
       </footer>
     </article>
   {% endif %}{% endfor %}

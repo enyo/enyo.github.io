@@ -37,7 +37,7 @@ html
 
 body
 
-  font-smoothing antialiased
+  fontSmoothing(false)
 
   // background url("../images/background_tile.png") repeat center
   background #fcfcfc
@@ -61,7 +61,7 @@ h1, h2, h3
   text-transform uppercase
   text-align center
 
-  font-smoothing subpixel-antialiased
+  fontSmoothing(true)
 
 
 h2
@@ -235,7 +235,7 @@ blockquote
         font-size 0.8em
         display inline-block
         // Light font on dark background needs to be subpixeled
-        font-smoothing subpixel-antialiased
+        fontSmoothing(true)
 
         display block
         opacity 0
@@ -249,7 +249,11 @@ blockquote
       transform rotateY(0) translateX(0px)
 
 
+
 @media (max-width: 600px)
+  #site-post #main
+    padding-top 1px
+
   .posts .post-preview .continue-reading
     span
       transform none
@@ -257,9 +261,13 @@ blockquote
       transition none
 
 @media (min-width: 600px)
+  #site-post #main
+    padding-top 1em
   html
     font-size 20px
 @media (min-width: 1000px)
+  #site-post #main
+    padding-top 3em
   html
     font-size 22px
 
