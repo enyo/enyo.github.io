@@ -3,6 +3,7 @@ layout: post
 title:  "To close or not to close"
 date:   2014-02-03 14:40:00
 categories: web programming
+cover_image: lamp
 ---
 
 
