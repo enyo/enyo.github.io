@@ -640,40 +640,40 @@ body.header-loaded > header h1 a span:nth-of-type(10) {
   body.header-loaded > header h1 {
     font-weight: 300;
   }
-  body.header-loaded > header h1 span:nth-of-type(1),
-  body.header-loaded > header h1 span:nth-of-type(6) {
+  body.header-loaded > header h1 a span:nth-of-type(1),
+  body.header-loaded > header h1 a span:nth-of-type(6) {
     -webkit-transform: translateX(-0.3em);
     -moz-transform: translateX(-0.3em);
     -o-transform: translateX(-0.3em);
     -ms-transform: translateX(-0.3em);
     transform: translateX(-0.3em);
   }
-  body.header-loaded > header h1 span:nth-of-type(2),
-  body.header-loaded > header h1 span:nth-of-type(7) {
+  body.header-loaded > header h1 a span:nth-of-type(2),
+  body.header-loaded > header h1 a span:nth-of-type(7) {
     -webkit-transform: translateX(-0.15em);
     -moz-transform: translateX(-0.15em);
     -o-transform: translateX(-0.15em);
     -ms-transform: translateX(-0.15em);
     transform: translateX(-0.15em);
   }
-  body.header-loaded > header h1 span:nth-of-type(3),
-  body.header-loaded > header h1 span:nth-of-type(8) {
+  body.header-loaded > header h1 a span:nth-of-type(3),
+  body.header-loaded > header h1 a span:nth-of-type(8) {
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
     -o-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
   }
-  body.header-loaded > header h1 span:nth-of-type(4),
-  body.header-loaded > header h1 span:nth-of-type(9) {
+  body.header-loaded > header h1 a span:nth-of-type(4),
+  body.header-loaded > header h1 a span:nth-of-type(9) {
     -webkit-transform: translateX(0.15em);
     -moz-transform: translateX(0.15em);
     -o-transform: translateX(0.15em);
     -ms-transform: translateX(0.15em);
     transform: translateX(0.15em);
   }
-  body.header-loaded > header h1 span:nth-of-type(5),
-  body.header-loaded > header h1 span:nth-of-type(10) {
+  body.header-loaded > header h1 a span:nth-of-type(5),
+  body.header-loaded > header h1 a span:nth-of-type(10) {
     -webkit-transform: translateX(0.3em);
     -moz-transform: translateX(0.3em);
     -o-transform: translateX(0.3em);
