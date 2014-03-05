@@ -1449,6 +1449,25 @@ var $$ = {};
   },
   TimerImpl: {
     "^": "Object;_once,_inEventLoop,_handle",
+    cancel$0: function() {
+      var t1, t2, t3;
+      t1 = $.get$globalThis();
+      if (t1.setTimeout != null) {
+        if (this._inEventLoop)
+          throw H.wrapException(P.UnsupportedError$("Timer in event loop cannot be canceled."));
+        t2 = this._handle;
+        if (t2 == null)
+          return;
+        t3 = init.globalState.topEventLoop;
+        t3.activeTimerCount = t3.activeTimerCount - 1;
+        if (this._once)
+          t1.clearTimeout(t2);
+        else
+          t1.clearInterval(t2);
+        this._handle = null;
+      } else
+        throw H.wrapException(P.UnsupportedError$("Canceling a timer."));
+    },
     TimerImpl$2: function(milliseconds, callback) {
       var t1, t2;
       if (milliseconds === 0)
@@ -6822,21 +6841,24 @@ var $$ = {};
 ["header", "header.dart", , Q, {
   "^": "",
   initHeader: function() {
-    var t1, backgroundImage, e;
+    var t1, backgroundImage, loadingTimer, e;
     t1 = document.querySelector("body > header");
     $.headerElement = t1;
-    $.linksElement = t1.querySelector(".links");
+    t1 = t1.querySelector(".links");
+    $.linksElement = t1;
+    $.loadingElement = t1.querySelector(".loading");
     Q._wrapHeaderLetters();
     t1 = $.headerElement;
     t1.toString;
     backgroundImage = t1.getAttribute("data-" + new W._DataAttributeMap(new W._ElementAttributeMap(t1))._toHyphenedName$1("image"));
+    loadingTimer = P.Timer_Timer(P.Duration$(0, 0, 0, 200, 0, 0), new Q.initHeader_closure());
     e = document.createElement("img", null);
     t1 = J.getInterceptor$x(e);
     t1.set$src(e, backgroundImage);
     t1 = t1.get$onLoad(e);
-    t1.get$first(t1).then$1(new Q.initHeader_closure(backgroundImage));
+    t1.get$first(t1).then$1(new Q.initHeader_closure0(backgroundImage, loadingTimer));
     t1 = H.setRuntimeTypeInfo(new W._EventStream(window, C.EventStreamProvider_resize._eventType, false), [null]);
-    H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new Q.initHeader_closure0()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
+    H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new Q.initHeader_closure1()), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
     Q._updateHeaderSize();
   },
   _wrapHeaderLetters: function() {
@@ -6849,16 +6871,28 @@ var $$ = {};
     J.set$height$x($.headerElement.style, H.S(P.max(t1, J.get$height$x($.linksElement.getBoundingClientRect()))) + "px");
   },
   initHeader_closure: {
-    "^": "Closure:8;backgroundImage_0",
-    call$1: function(e) {
-      var t1;
-      J.set$backgroundImage$x($.headerElement.style, "url(" + this.backgroundImage_0 + ")");
-      t1 = document.body;
+    "^": "Closure:6;",
+    call$0: function() {
+      var t1 = document.body;
       t1.toString;
-      new W._ElementCssClassSet(t1).add$1(0, "header-loaded");
+      new W._ElementCssClassSet(t1).add$1(0, "loading-header");
+      $.loadingElement.appendChild(document.createElement("span", null));
     }
   },
   initHeader_closure0: {
+    "^": "Closure:8;backgroundImage_0,loadingTimer_1",
+    call$1: function(e) {
+      var t1;
+      this.loadingTimer_1.cancel$0();
+      t1 = document.body;
+      t1.toString;
+      t1 = new W._ElementCssClassSet(t1);
+      t1.add$1(0, "header-loaded");
+      t1.remove$1(0, "loading-header");
+      J.set$backgroundImage$x($.headerElement.style, "url(" + this.backgroundImage_0 + ")");
+    }
+  },
+  initHeader_closure1: {
     "^": "Closure:8;",
     call$1: function(e) {
       return Q._updateHeaderSize();
@@ -7423,6 +7457,7 @@ $.Element__defaultValidator = null;
 $.Element__defaultSanitizer = null;
 $.headerElement = null;
 $.linksElement = null;
+$.loadingElement = null;
 $.windowHeight0 = null;
 $.Device__isOpera = null;
 $.Device__isWebKit = null;

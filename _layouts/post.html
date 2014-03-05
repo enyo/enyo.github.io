@@ -6,7 +6,8 @@ type: post
 <header data-image="/images/cover/{{ page.cover_image }}.jpg">
 
   <div class="links">
-    <h1><a href="/">COLORGLARE</a></h1>
+
+{% include logo.html %}
 
     <h2>{{ page.title }}</h2>
     <time datetime="{{ page.date | date: "%F %R" }}">{{ page.date | date_to_string }}</time>

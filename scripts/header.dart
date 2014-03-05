@@ -15,6 +15,7 @@ import "dart:async";
 
 Element headerElement;
 Element linksElement;
+Element loadingElement;
 var windowHeight;
 
 
@@ -28,6 +29,7 @@ initHeader() {
 
   headerElement = document.querySelector("body > header");
   linksElement = headerElement.querySelector(".links");
+  loadingElement = linksElement.querySelector(".loading");
 
   _wrapHeaderLetters();
   
@@ -35,7 +37,22 @@ initHeader() {
   var backgroundImage = headerElement.dataset['image'];
   
   
+  
+  // To prevent showing the spinner when it's actually already loaded
+  var loadingTimer = new Timer(new Duration(milliseconds: 200), () {
+    document.body.classes.add("loading-header");
+    
+    // Force redrawing due to Chrome bug.
+    loadingElement.append(new SpanElement());
+  });
+
   _preloadImage(backgroundImage).then((e) {
+    loadingTimer.cancel();
+
+    document.body.classes
+      ..add("header-loaded")
+      ..remove("loading-header");
+
     _initializeHeaderWithImage(backgroundImage);
   });
   
@@ -71,10 +88,11 @@ _wrapHeaderLetters() {
  * Preloads the image.
  */
 Future _preloadImage(String imageUrl) {
+
   var image = new ImageElement();
   
   image.src = imageUrl;
-  return image.onLoad.first;
+  return image.onLoad.first;//.then((_) => new Future.delayed(new Duration(milliseconds: 2000)));
 }
 
 
@@ -83,7 +101,6 @@ Future _preloadImage(String imageUrl) {
  */
 _initializeHeaderWithImage(String backgroundImage) {
   headerElement.style.backgroundImage = "url(${backgroundImage})";
-  document.body.classes.add("header-loaded");
 }
 
 /**

@@ -5,6 +5,12 @@ body > header h1 br
 smallest-letter-distance = 0.15em
 
 
+
+@keyframes loadingRotation
+    0%      { transform: rotateX(0); }
+    100%    { transform: rotateX(360deg); }
+
+
 /**
  * The default header on content sites
  */
@@ -70,8 +76,8 @@ body
       // The wraping is done by the <br> in the middle of the header
       white-space nowrap
 
-      opacity 0
       display block
+      position relative
       color white
       text-shadow 1px 2px 0 rgba(0, 0, 0, 0.1)
       text-align center
@@ -82,11 +88,16 @@ body
 
       padding-left 0.9em /* To account for letter spacing */
 
-      transition transform 1s ease-out, opacity 0.2s linear
-      
-      transform-style preserve-3d
-      transform rotatex(40deg)
       user-select none
+
+
+
+      a
+        opacity 0
+        transition transform 1s ease-out, opacity 0.2s linear
+        
+        transform-style preserve-3d
+        transform rotatex(40deg)
 
       // The spans are used to make the letters expand
       span
@@ -97,39 +108,106 @@ body
         transform translateX(0)
 
 
-   
+body.loading-header > header h1 .loading
+  opacity 1
+
+body > header h1
+  bladeHeight = 30px
+  bladeWidth = 6px
+
+  .loading
+    position absolute
+    display block
+
+    opacity 0
+
+
+    left 50%
+    top 30%
+    height bladeHeight
+    width bladeWidth
+
+    transition opacity 0.5s linear
+    perspective-origin center center
+    perspective 80
+
+    .blades
+      position absolute
+      top 0
+      left 0
+      width bladeWidth
+      height bladeHeight
+
+      animation loadingRotation 1.5s linear infinite
+      transform-style preserve-3d
+      transform-origin center center
+
+      .blade
+        
+        top 0
+        left 0
+        position absolute
+        height bladeHeight
+        width bladeWidth
+
+        display inline-block
+        background white
+
+      rotationSteps = 15deg
+
+      bladeDistance = 14px
+      .blade1
+        transform rotateX(0) translateX(-(bladeDistance/2 + bladeDistance*2))
+      .blade2
+        transform rotateX(rotationSteps) translateX(-(bladeDistance/2 + bladeDistance*1))
+      .blade3
+        transform rotateX(rotationSteps*2) translateX(-(bladeDistance/2 + bladeDistance*0))
+      .blade4
+        transform rotateX(rotationSteps*3) translateX((bladeDistance/2 + bladeDistance*0))
+      .blade5
+        transform rotateX(rotationSteps*4) translateX((bladeDistance/2 + bladeDistance*1))
+      .blade6
+        transform rotateX(rotationSteps*5) translateX((bladeDistance/2 + bladeDistance*2))
+
+
 
 body.header-loaded > header
   &:before
     opacity 0
   h1
-    opacity 1
-    // letter-spacing 1em
-    transform rotatex(0deg)
+    &:after
+      content ""
 
-    // In the @media query below there is another distribution
-    span
-      &:nth-of-type(1)
-        transform translateX(-(smallest-letter-distance*5))
-      &:nth-of-type(2)
-        transform translateX(-(smallest-letter-distance*4))
-      &:nth-of-type(3)
-        transform translateX(-(smallest-letter-distance*3))
-      &:nth-of-type(4)
-        transform translateX(-(smallest-letter-distance*2))
-      &:nth-of-type(5)
-        transform translateX(-(smallest-letter-distance/2))
+    .loading
+      opacity 0
+    a
+      opacity 1
+      // letter-spacing 1em
+      transform rotatex(0deg)
 
-      &:nth-of-type(6)
-        transform translateX((smallest-letter-distance/2))
-      &:nth-of-type(7)
-        transform translateX(smallest-letter-distance*2)
-      &:nth-of-type(8)
-        transform translateX(smallest-letter-distance*3)
-      &:nth-of-type(9)
-        transform translateX(smallest-letter-distance*4)
-      &:nth-of-type(10)
-        transform translateX(smallest-letter-distance*5)
+      // In the @media query below there is another distribution
+      span
+        &:nth-of-type(1)
+          transform translateX(-(smallest-letter-distance*5))
+        &:nth-of-type(2)
+          transform translateX(-(smallest-letter-distance*4))
+        &:nth-of-type(3)
+          transform translateX(-(smallest-letter-distance*3))
+        &:nth-of-type(4)
+          transform translateX(-(smallest-letter-distance*2))
+        &:nth-of-type(5)
+          transform translateX(-(smallest-letter-distance/2))
+
+        &:nth-of-type(6)
+          transform translateX((smallest-letter-distance/2))
+        &:nth-of-type(7)
+          transform translateX(smallest-letter-distance*2)
+        &:nth-of-type(8)
+          transform translateX(smallest-letter-distance*3)
+        &:nth-of-type(9)
+          transform translateX(smallest-letter-distance*4)
+        &:nth-of-type(10)
+          transform translateX(smallest-letter-distance*5)
 
 
         
