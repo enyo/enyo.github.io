@@ -5416,14 +5416,14 @@ var $$ = {};
     "%": "HTMLAppletElement|HTMLBRElement|HTMLCanvasElement|HTMLContentElement|HTMLDListElement|HTMLDataListElement|HTMLDetailsElement|HTMLDialogElement|HTMLDirectoryElement|HTMLDivElement|HTMLFontElement|HTMLFrameElement|HTMLFrameSetElement|HTMLHRElement|HTMLHeadElement|HTMLHeadingElement|HTMLHtmlElement|HTMLLabelElement|HTMLLegendElement|HTMLMarqueeElement|HTMLMenuElement|HTMLModElement|HTMLOListElement|HTMLOptGroupElement|HTMLParagraphElement|HTMLPreElement|HTMLQuoteElement|HTMLShadowElement|HTMLSpanElement|HTMLStyleElement|HTMLTableCaptionElement|HTMLTableCellElement|HTMLTableColElement|HTMLTableDataCellElement|HTMLTableHeaderCellElement|HTMLTitleElement|HTMLUListElement|HTMLUnknownElement;HTMLElement"
   },
   AnchorElement: {
-    "^": "HtmlElement;hostname=,href},port=,protocol=",
+    "^": "HtmlElement;hostname=,href},pathname=,port=,protocol=",
     toString$0: function(receiver) {
       return receiver.toString();
     },
     "%": "HTMLAnchorElement"
   },
   AreaElement: {
-    "^": "HtmlElement;hostname=,href},port=,protocol=",
+    "^": "HtmlElement;hostname=,href},pathname=,port=,protocol=",
     toString$0: function(receiver) {
       return receiver.toString();
     },
@@ -5590,6 +5590,10 @@ var $$ = {};
     "^": "HtmlElement;length=,name=",
     "%": "HTMLFormElement"
   },
+  History: {
+    "^": "Interceptor;length=",
+    "%": "History"
+  },
   IFrameElement: {
     "^": "HtmlElement;name=,src}",
     "%": "HTMLIFrameElement"
@@ -5616,7 +5620,7 @@ var $$ = {};
     "%": "HTMLLinkElement"
   },
   Location: {
-    "^": "Interceptor;hostname=,port=,protocol=",
+    "^": "Interceptor;hostname=,pathname=,port=,protocol=",
     toString$0: function(receiver) {
       return receiver.toString();
     },
@@ -6527,6 +6531,9 @@ var $$ = {};
     get$hostname: function(_) {
       return this._ptr.hostname;
     },
+    get$pathname: function(_) {
+      return this._ptr.pathname;
+    },
     get$port: function(_) {
       return this._ptr.port;
     },
@@ -6916,9 +6923,19 @@ var $$ = {};
 ["", "main.dart", , F, {
   "^": "",
   main: [function() {
+    F.removeHash();
     Q.initHeader();
     F.initSideImagesUnlessHome();
-  }, "call$0", "main$closure", 0, 0, 6]
+  }, "call$0", "main$closure", 0, 0, 6],
+  removeHash: function() {
+    P.Timer_Timer(C.Duration_10000, new F.removeHash_closure());
+  },
+  removeHash_closure: {
+    "^": "Closure:6;",
+    call$0: function() {
+      return window.history.replaceState(H.fillLiteralMap([], P.LinkedHashMap_LinkedHashMap(null, null, null, null, null)), document.title, J.get$pathname$x(C.Window_methods.get$location(window)));
+    }
+  }
 },
 1],
 ["side_images", "side_images.dart", , F, {
@@ -7176,6 +7193,9 @@ J.get$name$x = function(receiver) {
 J.get$nodes$x = function(receiver) {
   return J.getInterceptor$x(receiver).get$nodes(receiver);
 };
+J.get$pathname$x = function(receiver) {
+  return J.getInterceptor$x(receiver).get$pathname(receiver);
+};
 J.get$top$x = function(receiver) {
   return J.getInterceptor$x(receiver).get$top(receiver);
 };
@@ -7230,6 +7250,7 @@ J.trim$0$s = function(receiver) {
 C.C_DynamicRuntimeType = new H.DynamicRuntimeType();
 C.C__RootZone = new P._RootZone();
 C.Duration_0 = new P.Duration(0);
+C.Duration_10000 = new P.Duration(10000);
 C.EventStreamProvider_load = new W.EventStreamProvider("load");
 C.EventStreamProvider_resize = new W.EventStreamProvider("resize");
 C.EventStreamProvider_scroll = new W.EventStreamProvider("scroll");
