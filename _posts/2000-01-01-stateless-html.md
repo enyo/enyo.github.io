@@ -9,6 +9,7 @@ invisible: true
 
 A lot has changed in the fifteen years that I have been developing websites. The biggest changes happened in the browser, completely restructuring how normal web services behave. Now everybody expects your website to have at least a few dynamic elements on your website. Be it your login form, your shopping cart or a contact form.
 
+> Due to the fact that [JavaScript's browser monopoly is hopefully coming to and end](https://www.dartlang.org) very soon, I will refer to scripts running in the browser as BrowserScript.
 
 # Status Quo
 
