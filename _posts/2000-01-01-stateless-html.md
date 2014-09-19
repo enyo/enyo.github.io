@@ -46,6 +46,44 @@ Instead of generating HTML for it, build this functionality on top of your other
 
 
 
+![](/images/posts/vertical-stateful.png)
+
+
+```html
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Sample Website</title>
+
+<form action="." method="post">
+  <input type="email" name="username">
+  <input type="password" name="password">
+  <button>Submit</button>
+</form>
+```
+
+```html
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Sample Website</title>
+
+<h1 class="error">Wrong username/password</h1>
+<form action="." method="post">
+  <input type="email" name="username" value="previous@email.com">
+  <input type="password" name="password">
+  <button>Submit</button>
+</form>
+```
+
+```html
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Sample Website</title>
+
+<h1 class="success">Successfully logged in</h1>
+
+<a href="/">Continue browsing</a>
+```
+
 
 
 
