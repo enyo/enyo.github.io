@@ -1,0 +1,8 @@
+.internet-explorer.backdrop {
+  background-image: url("../images/posts/internet-explorer.jpg");
+}
+.use-html img,
+.dont-use-html img {
+  width: 82px;
+  margin: 0 auto 1em auto;
+}

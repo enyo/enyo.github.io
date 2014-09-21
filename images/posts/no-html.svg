@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="82px" height="114px" viewBox="0 0 82 114" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8053) - http://www.bohemiancoding.com/sketch -->
+    <title>no-html</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Oval-1-+-HTML-+-Path-2" sketch:type="MSLayerGroup">
+            <circle id="Oval-1" stroke="#E27300" stroke-width="0.5" fill-opacity="0.0254755435" fill="#E27300" sketch:type="MSShapeGroup" cx="40.9642857" cy="41" r="33"></circle>
+            <path d="M27.0625,27.4109589 L54.5772821,54.6460945" id="Line" stroke="#E27300" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M27.0625,27.4109589 L54.5772821,54.6460945" id="Line-2" stroke="#E27300" stroke-linecap="square" sketch:type="MSShapeGroup" transform="translate(41.178571, 41.383562) scale(-1, 1) translate(-41.178571, -41.383562) "></path>
+            <path d="M6.13392857,98.0958904 L79.4999978,98.0958904" id="Line" stroke-opacity="0.461588542" stroke="#E27300" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+            <path d="M10.5912857,95.9720548 L23.877,95.9720548 L23.877,105.493151 L24.4084286,105.493151 L24.4084286,86.7139726 L23.877,86.7139726 L23.877,95.4460274 L10.5912857,95.4460274 L10.5912857,86.7139726 L10.0598571,86.7139726 L10.0598571,105.493151 L10.5912857,105.493151 L10.5912857,95.9720548 Z M27.4110001,87.24 L34.2132858,87.24 L34.2132858,105.493151 L34.7447144,105.493151 L34.7447144,87.24 L41.5735715,87.24 L41.5735715,86.7139726 L27.4110001,86.7139726 L27.4110001,87.24 Z M61.5287144,86.7139726 L53.504143,104.809315 L53.4510002,104.809315 L45.4264287,86.7139726 L44.5495716,86.7139726 L44.5495716,105.493151 L45.0810002,105.493151 L45.0810002,87.3715068 L45.134143,87.3715068 L53.1852859,105.493151 L53.7698573,105.493151 L61.8210002,87.3715068 L61.874143,87.3715068 L61.874143,105.493151 L62.4055716,105.493151 L62.4055716,86.7139726 L61.5287144,86.7139726 Z M78.8798574,104.967123 L67.7995717,104.967123 L67.7995717,86.7139726 L67.2681431,86.7139726 L67.2681431,105.493151 L78.8798574,105.493151 L78.8798574,104.967123 Z" id="HTML" fill="#E37300" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

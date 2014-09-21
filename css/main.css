@@ -249,11 +249,13 @@ h3 {
 a {
   color: inherit;
 }
-p a {
+p a,
+li a {
   text-decoration: none;
   border-bottom: 2px solid #f34a53;
 }
-p a:hover {
+p a:hover,
+li a:hover {
   border-bottom-color: #000;
 }
 @media (max-width: 768px) {
@@ -823,7 +825,9 @@ body > footer p {
 #post .content > blockquote,
 #post .content > ul,
 #post .content > ol,
-#post .content > section {
+#post .content > section,
+#post .content > .backdrop > p,
+#post .content > .highlight {
   max-width: 740px;
   padding: 0 20px 0 20px;
   margin-left: auto;
