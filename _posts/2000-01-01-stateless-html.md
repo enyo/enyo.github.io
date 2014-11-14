@@ -145,7 +145,7 @@ You then attach a `click` event handler on those links, “disable” the defaul
 What the implementation should do, is:
 
 1. Create an AJAX request to the location (eg.: `/about.html`)
-2. Change the URL in the browser with the [history API](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history)
+2. Change the URL in the browser with the [history API](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history) (this way, the _back_ and _forward_ buttons still work in the browser)
 3. Show a loading animation that the content is now being loaded
 4. When the content is loaded, parse it to extract the contents of `#main` (you can help yourself there by adding markers in your HTML) and replace the content of your current `#main` section with the one you just loaded.
 5. Make sure that you handle all the links in your new `#main` content so they will act the same and fire off any BrowserScript required for the page that just loaded
