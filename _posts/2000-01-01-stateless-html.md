@@ -8,33 +8,35 @@ cover_image: rock
 invisible: true
 ---
 
-A lot has changed in the fifteen years that I have been developing websites. The biggest changes happened in the browser, completely restructuring how normal web services behave. Now everybody expects your website to contain at least a few dynamic elements. Be it your login form, your shopping cart or a contact form.
+A lot has changed in the fifteen years that I have been developing websites. The biggest changes happened in the browser, completely restructuring how normal web services are built. Now everybody expects your website to have at least a few dynamic elements, be it your login form, your shopping cart or a contact form.
 
-> Due to the fact that [JavaScript’s browser monopoly is hopefully coming to and end](https://www.dartlang.org) very soon, I will refer to scripts running in the browser as BrowserScript.
+> Due to the fact that [JavaScript’s browser monopoly is hopefully coming to an end](https://www.dartlang.org) very soon, I will refer to scripts running in the browser as BrowserScript.
 
 # Status Quo
 
-Some websites are actually web apps, which mean that they can be developed completely differently than previously and be written as browser apps that only communicate with the server to get the dynamic data. In this case, the web server is only in charge of serving the app itself and exposing some API (mostly a JSON API) the app can consume. Webmail services, task trackers, calendars etc… are good examples of this. *They are not what this post is about*.
+Some websites are actually web apps, which mean that they can be developed completely differently from previously and be written as browser apps that only communicate with the server to get the dynamic data. In this case, the web server is only in charge of providing the app itself and exposing some API (mostly a JSON API) the app can consume. Webmail services, task trackers, calendars etc… are good examples of this. *They are not what this post is about*.
 
 
 ## Typical Websites
 
-Most websites can’t and shouldn’t be built like web apps though, since they need to be crawlable by search engines and they want to be displayed as fast as possible instead of requiring the user to first download the app, that can be a few megabytes.
+Most websites can’t and shouldn’t be built like web apps, since they need to be crawlable by search engines and want to be displayed as fast as possible instead of requiring the user to first download the app (that can be a few megabytes).
 
-This is why the approach for normal websites is typically to use a web server to generate HTML sites and provide all the dynamic functionality with HTML. You would then have a normal HTML login form, which posts the data to the server, menus that are rendered differently on the server, depending on if the user is logged in or not, displaying session info, etc…
+This is why the approach for normal websites is typically to use a web server to generate HTML sites and provide all the dynamic functionality with HTML. You would then have a normal HTML login form, which posts the data to the server, menus that are rendered differently on the server depending on if the user is logged in or not, displaying session info, etc…
 
-![](/images/posts/horizontal-stateful@2x.png)
+<p class="graph">
+  <img class="horizontal" src="/images/posts/horizontal-stateful@2x.png" alt="Stateful Html Graph – horizontal">
+  <img class="vertical" src="/images/posts/vertical-stateful@2x.png" alt="Stateful Html Graph – vertical">
+</p>
 
+In a second step the website is “modernised” by adding BrowserScripts to give the website a snappier feel. The login form gets replaced so the user sees a nice spinner when logging in, some items are replaced to be loaded right in the browser to avoid having to reload the whole page and so on.
 
-In a second step the website is “modernised” by adding BrowserScripts to give the website a snappier feel. The login form gets replaced so the user sees a nice spinner when logging, some items are replaced to be loaded right in the browser to avoid having to reload the whole page and so on.
+This approach is typically taken because it creates crawlable pages that can even be accessed with browsers that don’t have BrowserScript enabled or are too outdated to properly execute your BrowserScript.
 
-This approach is typically used because it creates crawlable pages that can even be used by browsers that don’t have BrowserScript enabled or are too outdated to properly execute your BrowserScript.
+This approach is problematic for multiple reasons though:
 
-There are multiple things that are problematic with this approach though:
-
-- You suddenly have to maintain two code bases: the HTML only variant, and the BrowserScript on top of it
+- You suddenly have to maintain two code bases: the HTML-only variant, and the BrowserScript on top of it
 - There’s a lot more overall complexity since your BrowserScript needs to interact properly with your HTML version (if the HTML changes, the BrowserScript might break)
-- In most cases the cool BrowserScript variants will never make it, because there is already a working HTML implementation, and there are more important things to do than providing a cooler version of an already existing feature
+- In most cases the cool BrowserScript variants will never make it, because there is already a working HTML implementation, and there are more important things to do than provide a better version of an already existing feature
 
 So in order to also have an HTML only version, you actually create a worse website for 98% of your users to accommodate 2%.
 
@@ -44,14 +46,14 @@ This is where my concept of stateless HTML comes into play.
 
 When I talk about *stateless HTML* I mean that everything representing a user state (authentication state, geographic position of the user, etc…) should not affect the HTML you render. In other words:
 
-> Every user should get the exact same HTML for the same URL
+> Every user should get the exact same HTML for the same URL, regardless of state, geographic location or time
 
 <div class="side-by-side">
   <div class="use-html side">
     <p>
       <img src="/images/posts/html.svg">
 
-      The first thing to do, is to think of which things need to be crawlable by search engines. In the case of a recipe website, the “About” page and the single “Recipe” pages would be a good example of pages that need to be discoverable when people search for them on a search engine.
+      The first thing to do is think of which parts need to be crawlable by search engines. In the case of a recipe website, the “About” page and the single “Recipe” pages would be a good example of pages that need to be discoverable when people search for them.
     </p>
     <p>
       Everything that represents data that is <em>not</em> affected by who is looking at it and from where.
@@ -60,25 +62,25 @@ When I talk about *stateless HTML* I mean that everything representing a user st
   <div class="dont-use-html side">
     <p>
       <img src="/images/posts/no-html.svg">
-      The user menu (<em>login</em>, <em>my account</em>, <em>my recipes</em>, etc…), recipes that might suit the users taste, a contact form and everything that is user specific and dynamic are examples of content that does not need to be included in your HTML.
+      The user menu (<em>login</em>, <em>my account</em>, <em>my recipes</em>, etc…), recipes that might suit the user's taste, a contact form and everything that is user specific and dynamic are examples of content that do not need to be included in your HTML.
     </p>
     <p>
-      Instead of generating HTML for it, build this functionality on top of your other HTML pages, fully with BrowserScript. 
+      Instead of generating HTML for it, build this functionality on top of your other HTML pages fully with BrowserScript. 
     </p>
   </div>
 </div>
 
-A good and easy to understand example of this concept, is this blog – colorglare. All pages are purely static (they are served by GitHub as static HTML pages). Every user and every search engine get the exact same page every time, which allows GitHub to be very efficient in serving the page. On the bottom of the page you have dynamic content though: the message board. In the case of colorglare, I chose to go with [disqus](https://disqus.com) so I didn’t have to implement anything. The whole message board is loaded at runtime with BrowserScript and doesn’t affect the HTML at all.
+A good and easy-to-understand example of this concept is this blog – colorglare. All pages are purely static (they are served by GitHub as static HTML pages). Every user and every search engine get the exact same page every time, which allows GitHub to be very efficient in serving the page. On the bottom of the page you have dynamic content though: the message board. In the case of colorglare, I chose to go with [disqus](https://disqus.com) so I didn’t have to implement anything. The whole message board is loaded at runtime with BrowserScript and doesn’t affect the HTML at all.
 
 So you can see that this concept is nothing new.
 
 ## Advant<wbr>ages of stateless HTML
 
-Apart from the things listed in the previous section, stating that writing stateless HTML and adding dynamic functionality with BrowserScript dramatically reduces the complexity and maintainability of your webapp, a few additional advantages need to be highlighted:
+Apart from the things listed in the previous section – which outlined that writing stateless HTML and adding dynamic functionality with BrowserScript dramatically reduces the complexity and maintainability of your webapp – a few additional advantages need to be highlighted:
 
-- Performance. Serving static HTML sites can be heavily cached (by the browser or a load balancer). They only need to change when the content changes which normally happens rarely.
+- Performance. Serving static HTML sites can be heavily cached (by the browser or a load balancer). They only need to change when the content changes, which normally happens rarely.
 
-- More robust hosting. By completely separating your static content from your dynamic content, your HTML sites are less prone to failure. Depending on the webapp you build, your site could even be served properly even if your database crashed, only disabling all authentication and dynamic content (which is far better than your whole page displaying a “database error”).
+- More robust hosting. By completely separating your static content from your dynamic content, your HTML sites are less prone to failure. Depending on the webapp you build, your site could even be served properly if your database crashed, only disabling all authentication and dynamic content (which is far better than your whole page displaying a “database error”).
 
 - Better user experience. In the next section I’ll explain how stateless HTML can drastically improve the UX of your webapp.
 
@@ -136,7 +138,7 @@ I think that all of those points are pretty obvious, except for the last one, wh
 
 ### Load all content dynamically
 
-By putting all your content in the `#main` section, and not changing anything before or after, you make it possible to dynamically load your content, and simply exchange it for every page.
+By putting all your content in the `#main` section, and always serving the same HTML blocks before and after, you make it possible to dynamically load your content and simply exchange it for every page, without needing to implement another representation of your content on the server.
 
 When your site is loaded, your BrowserScript parses the document and looks for all links that point to other HTML pages on your site, for example: `/laces.html`, `/laces/striped-laces.html`, `/home.html`, `/about.html` etc…
 
@@ -150,7 +152,7 @@ What the implementation should do, is:
 4. When the content is loaded, parse it to extract the contents of `#main` (you can help yourself there by adding markers in your HTML) and replace the content of your current `#main` section with the one you just loaded.
 5. Make sure that you handle all the links in your new `#main` content so they will act the same and fire off any BrowserScript required for the page that just loaded
 
-Since all your pages are static HTML files anyway, you just get this “in page loading” functionality for free. Your links are still completely valid (you can just reload the page or send the link to someone else), there is no additional maintenance of two separate versions: the one to be served as pure HTML and the one that gets loaded with AJAX, *and* the initial delay of showing the account menu or determining the user’s authentication state will not be noticeable anymore since the state of the page isn’t reloaded.
+Since all your pages are static HTML files anyway, you just get this “in page loading” functionality for free. Your links are still completely valid (you can just reload the page or send the link to someone else), there is no additional maintenance of two separate versions: the one to be served as pure HTML and the one that gets loaded with AJAX, *and* the initial delay of showing the account menu or determining the user’s authentication state will not be reproduced since the page is not actually reloaded.
 
 
 
@@ -158,6 +160,10 @@ Since all your pages are static HTML files anyway, you just get this “in page 
 <div class="dark internet-explorer backdrop">
   <p>
     The long lasting struggle with slow browser adoption and stale browsers (notably IE6) is also a thing of the past, allowing developers to actually use modern features without needing to implement fallbacks for all of them to support their customers.
+  </p>
+  <p>
+    Of course, if you think that it is imperative that even users with disabled BrowserScript must be able to access the dynamic features on your page, you need to implement an `HTML` only solution as well.<br />
+    Just keep in mind that they are a minuscule minority and that there are only a few websites left that are still functional without BrowserScript.
   </p>
 </div>
 
