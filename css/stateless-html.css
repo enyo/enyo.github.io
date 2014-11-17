@@ -6,3 +6,14 @@
   width: 82px;
   margin: 0 auto 1em auto;
 }
+#post .content .graph .vertical {
+  display: none;
+}
+@media (max-width: 600px) {
+  #post .content .graph .vertical {
+    display: block;
+  }
+  #post .content .graph .horizontal {
+    display: none;
+  }
+}
