@@ -134,7 +134,7 @@ Now, as soon as your page loads, the BrowserScript (in this case `app.js`) gets 
 - Parse the document to find all relative links, pointing to other pages
 
 
-I think that all of those points are pretty obvious, except for the last one, which is the subject of the next chapter
+I think that all of those points are pretty obvious, except for the last one, which is the subject of the next chapter.
 
 ### Load all content dynamically
 
@@ -146,24 +146,24 @@ You then attach a `click` event handler on those links, “disable” the defaul
 
 What the implementation should do, is:
 
-1. Create an AJAX request to the location (eg.: `/about.html`)
-2. Change the URL in the browser with the [history API](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history) (this way, the _back_ and _forward_ buttons still work in the browser)
-3. Show a loading animation that the content is now being loaded
+1. Create an AJAX request to the location (eg.: `/about.html`).
+2. Change the URL in the browser with the [history API](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history) (this way, the _back_ and _forward_ buttons still work in the browser).
+3. Show a loading animation that the content is now being loaded.
 4. When the content is loaded, parse it to extract the contents of `#main` (you can help yourself there by adding markers in your HTML) and replace the content of your current `#main` section with the one you just loaded.
-5. Make sure that you handle all the links in your new `#main` content so they will act the same and fire off any BrowserScript required for the page that just loaded
+5. Make sure that you handle all the links in your new `#main` content so they will act the same and fire off any BrowserScript required for the page that just loaded.
 
-Since all your pages are static HTML files anyway, you just get this “in page loading” functionality for free. Your links are still completely valid (you can just reload the page or send the link to someone else), there is no additional maintenance of two separate versions: the one to be served as pure HTML and the one that gets loaded with AJAX, *and* the initial delay of showing the account menu or determining the user’s authentication state will not be reproduced since the page is not actually reloaded.
+Since all your pages are static HTML files anyway, you just get this “in page loading” functionality for free. Your links are still completely valid (you can just reload the page or send the link to someone else), there is no additional maintenance of two separate versions (the one to be served as pure HTML and the one that gets loaded with AJAX), *and* the initial delay of showing the account menu or determining the user’s authentication state will not be reproduced since the page is not actually reloaded.
 
 
 
 
 <div class="dark internet-explorer backdrop">
   <p>
-    The long lasting struggle with slow browser adoption and stale browsers (notably IE6) is also a thing of the past, allowing developers to actually use modern features without needing to implement fallbacks for all of them to support their customers.
+    The long-lasting struggle with slow browser adoption and stale browsers (notably IE6) is also a thing of the past, allowing developers to actually use modern features without needing to implement fallbacks for all of them to support their customers.
   </p>
   <p>
     Of course, if you think that it is imperative that even users with disabled BrowserScript must be able to access the dynamic features on your page, you need to implement an `HTML` only solution as well.<br />
-    Just keep in mind that they are a minuscule minority and that there are only a few websites left that are still functional without BrowserScript.
+    Just keep in mind that they are a minuscule minority and that there are only a few websites left that still function without BrowserScript.
   </p>
 </div>
 
