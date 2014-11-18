@@ -168,4 +168,16 @@ Since all your pages are static HTML files anyway, you just get this “in page 
 </div>
 
 
+# Summary
+
+As stated before, none of this is really new. The main purpose of this post is to provide strict guidelines on how to build your web application in order to get the best result for the least effort:
+
+- Write stateless HTML
+- Build everything else with BrowserScript
+- Handle page loads transparently with AJAX by loading and parsing your HTML files
+
+
 To see all of this in action, I created a [proof of concept demo page](http://colorglare.com/stateless-html-example/). You can view the JavaScript [code at GitHub](https://github.com/enyo/stateless-html-example/blob/gh-pages/js/app.js).
+
+
+
