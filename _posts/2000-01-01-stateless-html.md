@@ -14,7 +14,7 @@ A lot has changed in the fifteen years that I have been developing websites. The
 
 # Status Quo
 
-Some websites are actually web apps, which mean that they can be developed completely differently from previously and be written as browser apps that only communicate with the server to get the dynamic data. In this case, the web server is only in charge of providing the app itself and exposing some API (mostly a JSON API) the app can consume. Webmail services, task trackers, calendars etc… are good examples of this. *They are not what this post is about*.
+Some websites are actually web apps, which means that they can be developed completely differently and be written as browser apps that only communicate with the server to get the dynamic data. In this case, the web server is only in charge of providing the app itself and exposing some API (mostly a JSON API) the app can consume. Webmail services, task trackers, calendars etc… are good examples of this. *They are not what this post is about*.
 
 
 ## Typical Websites
