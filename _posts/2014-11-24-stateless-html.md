@@ -169,7 +169,7 @@ Since all your pages are static HTML files anyway, you just get this “in page 
 
 # Summary
 
-As stated before, none of this is really new. The main purpose of this post is to provide strict guidelines on how to build your web application in order to get the best result for the least effort:
+As stated before, none of this is really new. The main purpose of this post was to provide strict guidelines on how to build your web application in order to get the best result for the least effort:
 
 - Write stateless HTML
 - Build everything else with BrowserScript
