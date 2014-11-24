@@ -26,7 +26,7 @@ I had a few goals for this website, that kind of dictated the technologies I
 was going to use:
 
 1. I didn't want to be in charge of the hosting of the website. I have hosted
-too many websites in my lifetime to know that, sooner or later, it's not fun
+many websites in my lifetime, and I know that, sooner or later, it's not fun
 anymore.
 
 2. I didn't want any server side language on the website. The few things that
