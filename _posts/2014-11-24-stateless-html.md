@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Stop writing stateful HTML"
-date:   2000-01-01 14:40:00
+date:   2014-11-24 14:28:00
 stylesheet: /css/stateless-html.css
 categories: web programming
 cover_image: rock
