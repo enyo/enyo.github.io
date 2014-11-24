@@ -25,7 +25,7 @@ This is why the approach for normal websites is typically to use a web server to
   <img class="vertical" src="/images/posts/vertical-stateful@2x.png" alt="Stateful Html Graph – vertical">
 </p>
 
-In a second step the website is “modernised” by adding JavaScripts to give the website a snappier feel. The login form gets replaced so the user sees a nice spinner when logging in, some items are replaced to be loaded right in the browser to avoid having to reload the whole page and so on.
+In a second step the website is “modernised” by adding JavaScript to give the website a snappier feel. The login form gets replaced so the user sees a nice spinner when logging in, some items are replaced to be loaded right in the browser to avoid having to reload the whole page and so on.
 
 This approach is typically taken because it creates crawlable pages that can even be accessed with browsers that don’t have JavaScript enabled or are too outdated to properly execute your JavaScript.
 
