@@ -9,8 +9,6 @@ cover_image: rock
 
 A lot has changed in the fifteen years that I have been developing websites. The biggest changes happened in the browser, completely restructuring how normal web services are built. Now everybody expects your website to have at least a few dynamic elements, be it your login form, your shopping cart or a contact form.
 
-> Due to the fact that [JavaScript’s browser monopoly is hopefully coming to an end](https://www.dartlang.org) very soon, I will refer to scripts running in the browser as BrowserScript.
-
 # Status Quo
 
 Some websites are actually web apps, which means that they can be developed completely differently and be written as browser apps that only communicate with the server to get the dynamic data. In this case, the web server is only in charge of providing the app itself and exposing some API (mostly a JSON API) the app can consume. Webmail services, task trackers, calendars etc… are good examples of this. *They are not what this post is about*.
@@ -27,15 +25,15 @@ This is why the approach for normal websites is typically to use a web server to
   <img class="vertical" src="/images/posts/vertical-stateful@2x.png" alt="Stateful Html Graph – vertical">
 </p>
 
-In a second step the website is “modernised” by adding BrowserScripts to give the website a snappier feel. The login form gets replaced so the user sees a nice spinner when logging in, some items are replaced to be loaded right in the browser to avoid having to reload the whole page and so on.
+In a second step the website is “modernised” by adding JavaScripts to give the website a snappier feel. The login form gets replaced so the user sees a nice spinner when logging in, some items are replaced to be loaded right in the browser to avoid having to reload the whole page and so on.
 
-This approach is typically taken because it creates crawlable pages that can even be accessed with browsers that don’t have BrowserScript enabled or are too outdated to properly execute your BrowserScript.
+This approach is typically taken because it creates crawlable pages that can even be accessed with browsers that don’t have JavaScript enabled or are too outdated to properly execute your JavaScript.
 
 This approach is problematic for multiple reasons though:
 
-- You suddenly have to maintain two code bases: the HTML-only variant, and the BrowserScript on top of it
-- There’s a lot more overall complexity since your BrowserScript needs to interact properly with your HTML version (if the HTML changes, the BrowserScript might break)
-- In most cases the cool BrowserScript variants will never make it, because there is already a working HTML implementation, and there are more important things to do than provide a better version of an already existing feature
+- You suddenly have to maintain two code bases: the HTML-only variant, and the JavaScript on top of it
+- There’s a lot more overall complexity since your JavaScript needs to interact properly with your HTML version (if the HTML changes, the JavaScript might break)
+- In most cases the cool JavaScript variants will never make it, because there is already a working HTML implementation, and there are more important things to do than provide a better version of an already existing feature
 
 So in order to also have an HTML only version, you actually create a worse website for 98% of your users to accommodate 2%.
 
@@ -64,18 +62,18 @@ When I talk about *stateless HTML* I mean that everything representing a user st
       The user menu (<em>login</em>, <em>my account</em>, <em>my recipes</em>, etc…), recipes that might suit the user's taste, a contact form and everything that is user specific and dynamic are examples of content that do not need to be included in your HTML.
     </p>
     <p>
-      Instead of generating HTML for it, build this functionality on top of your other HTML pages fully with BrowserScript. 
+      Instead of generating HTML for it, build this functionality on top of your other HTML pages fully with JavaScript. 
     </p>
   </div>
 </div>
 
-A good and easy-to-understand example of this concept is this blog – colorglare. All pages are purely static (they are served by GitHub as static HTML pages). Every user and every search engine get the exact same page every time, which allows GitHub to be very efficient in serving the page. On the bottom of the page you have dynamic content though: the message board. In the case of colorglare, I chose to go with [disqus](https://disqus.com) so I didn’t have to implement anything. The whole message board is loaded at runtime with BrowserScript and doesn’t affect the HTML at all.
+A good and easy-to-understand example of this concept is this blog – colorglare. All pages are purely static (they are served by GitHub as static HTML pages). Every user and every search engine get the exact same page every time, which allows GitHub to be very efficient in serving the page. On the bottom of the page you have dynamic content though: the message board. In the case of colorglare, I chose to go with [disqus](https://disqus.com) so I didn’t have to implement anything. The whole message board is loaded at runtime with JavaScript and doesn’t affect the HTML at all.
 
 So you can see that this concept is nothing new.
 
 ## Advant<wbr>ages of stateless HTML
 
-Apart from the things listed in the previous section – which outlined that writing stateless HTML and adding dynamic functionality with BrowserScript dramatically reduces the complexity and maintainability of your webapp – a few additional advantages need to be highlighted:
+Apart from the things listed in the previous section – which outlined that writing stateless HTML and adding dynamic functionality with JavaScript dramatically reduces the complexity and maintainability of your webapp – a few additional advantages need to be highlighted:
 
 - Performance. Serving static HTML sites can be heavily cached (by the browser or a load balancer). They only need to change when the content changes, which normally happens rarely.
 
@@ -109,7 +107,7 @@ First of all, you still need to create your typical HTML pages. I will give a ve
   <a href="/about">About</a>
   <a href="/laces">Laces</a>
   <div class="account-menu">
-    <!-- This will be handled by BrowserScript -->
+    <!-- This will be handled by JavaScript -->
   </div>
 </nav>
 
@@ -125,11 +123,11 @@ First of all, you still need to create your typical HTML pages. I will give a ve
 </footer>
 ```
 
-Now, as soon as your page loads, the BrowserScript (in this case `app.js`) gets executed and does the following things:
+Now, as soon as your page loads, the JavaScript (in this case `app.js`) gets executed and does the following things:
 
 - Check if the user is logged in (with cookies and/or an AJAX request to the server)
 - Create the appropriate `.account-menu` content (depending on the user authentication state)
-- Create all the additional BrowserScript features (for example, if you are on a Shoelace page, your BrowserScript might go over, and add rating functionality)
+- Create all the additional JavaScript features (for example, if you are on a Shoelace page, your JavaScript might go over, and add rating functionality)
 - Parse the document to find all relative links, pointing to other pages
 
 
@@ -139,7 +137,7 @@ I think that all of those points are pretty obvious, except for the last one, wh
 
 By putting all your content in the `#main` section, and always serving the same HTML blocks before and after, you make it possible to dynamically load your content and simply exchange it for every page, without needing to implement another representation of your content on the server.
 
-When your site is loaded, your BrowserScript parses the document and looks for all links that point to other HTML pages on your site, for example: `/laces.html`, `/laces/striped-laces.html`, `/home.html`, `/about.html` etc…
+When your site is loaded, your JavaScript parses the document and looks for all links that point to other HTML pages on your site, for example: `/laces.html`, `/laces/striped-laces.html`, `/home.html`, `/about.html` etc…
 
 You then attach a `click` event handler on those links, “disable” the default behavior (by calling `event.preventDefault()`) and add your own click handler.
 
@@ -149,7 +147,7 @@ What the implementation should do, is:
 2. Change the URL in the browser with the [history API](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history) (this way, the _back_ and _forward_ buttons still work in the browser).
 3. Show a loading animation that the content is now being loaded.
 4. When the content is loaded, parse it to extract the contents of `#main` (you can help yourself there by adding markers in your HTML) and replace the content of your current `#main` section with the one you just loaded.
-5. Make sure that you handle all the links in your new `#main` content so they will act the same and fire off any BrowserScript required for the page that just loaded.
+5. Make sure that you handle all the links in your new `#main` content so they will act the same and fire off any JavaScript required for the page that just loaded.
 
 Since all your pages are static HTML files anyway, you just get this “in page loading” functionality for free. Your links are still completely valid (you can just reload the page or send the link to someone else), there is no additional maintenance of two separate versions (the one to be served as pure HTML and the one that gets loaded with AJAX), *and* the initial delay of showing the account menu or determining the user’s authentication state will not be reproduced since the page is not actually reloaded.
 
@@ -161,8 +159,8 @@ Since all your pages are static HTML files anyway, you just get this “in page 
     The long-lasting struggle with slow browser adoption and stale browsers (notably IE6) is also a thing of the past, allowing developers to actually use modern features without needing to implement fallbacks for all of them to support their customers.
   </p>
   <p>
-    Of course, if you think that it is imperative that even users with disabled BrowserScript must be able to access the dynamic features on your page, you need to implement an `HTML` only solution as well.<br />
-    Just keep in mind that they are a minuscule minority and that there are only a few websites left that still function without BrowserScript.
+    Of course, if you think that it is imperative that even users with disabled JavaScript must be able to access the dynamic features on your page, you need to implement an `HTML` only solution as well.<br />
+    Just keep in mind that they are a minuscule minority and that there are only a few websites left that still function without JavaScript.
   </p>
 </div>
 
@@ -172,7 +170,7 @@ Since all your pages are static HTML files anyway, you just get this “in page 
 As stated before, none of this is really new. The main purpose of this post was to provide strict guidelines on how to build your web application in order to get the best result for the least effort:
 
 - Write stateless HTML
-- Build everything else with BrowserScript
+- Build everything else with JavaScript
 - Handle page loads transparently with AJAX by loading and parsing your HTML files
 
 
