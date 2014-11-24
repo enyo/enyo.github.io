@@ -5,7 +5,6 @@ date:   2014-11-24 14:28:00
 stylesheet: /css/stateless-html.css
 categories: web programming
 cover_image: rock
-invisible: true
 ---
 
 A lot has changed in the fifteen years that I have been developing websites. The biggest changes happened in the browser, completely restructuring how normal web services are built. Now everybody expects your website to have at least a few dynamic elements, be it your login form, your shopping cart or a contact form.
