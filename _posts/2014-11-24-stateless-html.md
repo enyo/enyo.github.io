@@ -37,7 +37,7 @@ This approach is problematic for multiple reasons though:
 
 So in order to also have an HTML only version, you actually create a worse website for 98% of your users to accommodate 2%.
 
-This is where my concept of stateless HTML comes into play.
+This is where the concept of stateless HTML comes into play.
 
 # What is it about?
 
