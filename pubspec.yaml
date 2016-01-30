@@ -1,8 +1,5 @@
 name: COLORGLARE
 description: Personal website
 dependencies:
-  polymer: any
-  route: any
-#transformers:
-#- polymer:
-#    entry_points: web/index.html
+dev_dependencies:
+  grinder: ^0.8.0
