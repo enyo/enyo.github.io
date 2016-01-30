@@ -5,5 +5,5 @@ markdown: redcarpet
 highlighter: pygments
 permalink: /:year/:month/:day/:title.html
 exclude:
-  - build.dart
   - pubspec.*
+  - tool

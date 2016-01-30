@@ -72,12 +72,18 @@
 
       &.dark 
         color white
+        background-color #333
+        a
+          border-color white
         // Light font on dark background needs to be subpixeled
         fontSmoothing(true)
         text-shadow 0 1px 0 rgba(0, 0, 0, 0.4)
 
         aside.copyright
           color rgba(255, 255, 255, 0.3)
+
+        code
+          background rgba(243,74,83,0.40) // Needs to be a bit stronger
 
 
     h1, h2, h3
@@ -90,6 +96,22 @@
     img
       max-width 100%
       display block
+
+    .embedded-video
+      > div
+        position relative
+        width 100%
+        &:after
+          content ''
+          padding-top 56.25%
+          // 16:9 ratio
+          display block
+
+        iframe
+          display block
+          position absolute
+          width 100%
+          height 100%
 
     .side-by-side
       margin-top 2em
