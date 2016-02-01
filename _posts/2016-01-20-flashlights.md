@@ -77,7 +77,7 @@ the page.
 
 
 Now that I've got a nice player in the background I just make sure that pointer events aren't forwarded to the
-YouTube player by overlaying an invisible div that captures all those events (so the YouTube UI dosn't appear when
+YouTube player by overlaying an invisible div that captures all those events (so the YouTube UI doesn't appear when
 hovering the player) and use the [YouTube Player API](https://developers.google.com/youtube/iframe_api_reference?hl=en#Playback_controls)
 to forward any events to pause or resume the video when the container is clicked and to implement my own timeline &
 seeking behaviour.
@@ -100,8 +100,8 @@ seeking behaviour.
 </div>
   
 <p>
-  To make them appear at the right tame, I make use of YouTubes JavaScript API. In the <code>onStateChange</code>
-  event, I check whether <code>event.data == YT.PlayerState.PLAYING</code> and if so, I start periodic timer
+  To make them appear at the right time, I make use of YouTubes JavaScript API. In the <code>onStateChange</code>
+  event, I check whether <code>event.data == YT.PlayerState.PLAYING</code> and if so, I start a periodic timer
   with <code>setInterval(updateTime, intervalDelay)</code>, with <code>updateTime</code> being the periodically
   invoked callback, and <code>intervalDelay</code> the time between each interval (I chose 25ms).
 </p>
@@ -145,8 +145,8 @@ function updateTime() {
   </div>
 </div>
    
-The mundane part now, is to get all the timings of the scribbles. I did that by loading the video into a video editing
-software, and write down all the time codes. I then markup the individual phrases that I want to add scribbles like
+The mundane part now, is to get all the timings of the scribbles. I do that by loading the video into a video editing
+software, and write down all the time codes. I then markup the individual phrases that I want to add scribbles to like
 that: `<span data-time="33.92">vultures</span>`. Inside the `highlight()` function, I then see if one of the phrases
 should be highlighted based on that `date-time` attribute, and if so, I add the `.highlight` class which makes the
 scribble appear and fade out.
@@ -166,8 +166,8 @@ I wanted to find a solution that met all the following criteria:
 To solve all those problems, I decided to go following route:
  
 - Every highlights position is measured from the center of a `<span>` of a single word or phrase. So let's say I want to
-  highlight the word «Flashlight», then I will add the scribble as an additional `<span>` inside this word, positioning
-  it at the center.  
+  highlight the word «Flashlight», then I will add the scribble as an additional `<span>` inside the word's span,
+  positioning it at the center.  
 - This allows me to create the scribbles inside Photoshop, by defining a fixed width/height rectangle for each word,
   positioning the individual words I want to highlight at the center of each rectangle, and just draw over it:  
   ![](/images/posts/flashlights-scribble-screenshot.png)  
