@@ -109,7 +109,9 @@ seeking behaviour.
 <div class="side-by-side">
   <div class="side">
     <p>
-      Inside the <code>updateTime</code> I use the <code>player.getCurrentTime()</code> function to get the time of the video. Unfortunately, the
+      Inside the <code>updateTime</code> I use the <code>player.getCurrentTime()</code> function to get the time of the video.
+      <br>
+      Unfortunately, the
       time returned by this function is not very precise (if queried in a 25ms interval, you will get the same time multiple
       times), so I need to adjust the time accordingly to make sure that the scribbles appear at exactly at the time that I
       want. The easiest way to address this issue, is by simply adding 25ms to the last time retrieved, as long as the time
@@ -166,7 +168,24 @@ To solve all those problems, I decided to go following route:
 - Every highlights position is measured from the center of a `<span>` of a single word or phrase. So let's say I want to
   highlight the word «Flashlight», then I will add the scribble as an additional `<span>` inside this word, positioning
   it at the center.  
-- This allows me to create the scribbles inside Photoshop in a way
-  ![](/images/posts/flashlights-scribble-screenshot.png)
+- This allows me to create the scribbles inside Photoshop, by defining a fixed width/height rectangle for each word,
+  positioning the individual words I want to highlight at the center of each rectangle, and just draw over it:  
+  ![](/images/posts/flashlights-scribble-screenshot.png)  
+  In the end, I just save the [scribbles without background or text](https://github.com/enyo/meno.fm/blob/gh-pages/flashlights/images/highlights/_verse1.png)
+  as a `png` (so just scribbles with a transparent background).
+  This approach ensures minimal displacement, since even very different font rendering will render the word at pretty
+  much the same position
+- I could already use this image as a CSS spritemap, but this image is obviously _a lot_ larger than needed, and
+  contains a lot of unnecessary white space. So I wrote a [script that trims all the white space](https://github.com/enyo/meno.fm/blob/gh-pages/flashlights/images/highlights/_production/bin/create_spritemap.dart).
+  This script goes through each rectangle, trims all the whitespace from each scribble, generates a new
+  [optimized spritemap](https://github.com/enyo/meno.fm/blob/gh-pages/flashlights/images/highlights/verse1.png) and
+  generates a [json file](https://github.com/enyo/meno.fm/blob/gh-pages/_includes/flashlights/verse1.json) with the
+  necessary information to properly position each scribble at the center (depending on how much white space has been
+  removed).
+- Finally, when I parse all the times for the individual words, I use the generated JSON to properly place the scribbles
+  
+# Final words
+
+1. All the source code is here: https://github.com/enyo/meno.fm
 
 
