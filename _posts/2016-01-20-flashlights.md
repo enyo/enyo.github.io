@@ -16,7 +16,9 @@ So first things first: go to [meno.fm/flashlights](http://www.meno.fm/flashlight
 effects in action. Unfortunately it is built to be viewed for Desktop, so if you are on mobile you will only be able
 to see the plain video:
 
-<section class="embedded-video"><div><iframe width="700" height="394" src="https://www.youtube.com/embed/sFBFkZYGgcE?rel=0" frameborder="0" allowfullscreen></iframe></div></section>
+<section class="embedded-video">
+  <div><iframe width="700" height="394" src="https://www.youtube.com/embed/sFBFkZYGgcE?rel=0" frameborder="0" allowfullscreen></iframe></div>
+</section>
 
 What you see on the page, is the video playing in the background with the text appearing at the time of the first verse,
 with scribbles on top of it, guiding you through the lyrics. Here and there I added small visual effects that make all
@@ -40,7 +42,7 @@ the page.
         The goal is to make the video player always take 100% of the browser height and be centered horizontally.
         <br>
         The simplified markup is: <code>&lt;div class="container"&gt;&lt;iframe&gt;&lt;/iframe&gt;&lt;/div&gt;</code>
-        – the iframe containing the Youtube video.
+        – the iframe containing the YouTube video.
       </p>
       <p>
         The container has the width and height set to <code>100vw</code> and
@@ -63,34 +65,108 @@ the page.
   </div>
   
   <p>
-    Sidenote: setting the width and height actively is necessary for Youtube to get the proper dimensions, otherwise
-    Youtube automatically scales down the content for the available space and will not allow the video to be wider than
-    the actual browser size.
+    Sidenotes: setting the width and height actively is necessary for YouTube to get the proper dimensions, otherwise
+    YouTube automatically scales down the content for the available space and will not allow the video to be wider than
+    the actual browser size.<br>
+    The iframe is actually in a <code>#player</code> div, and the YouTube JavaScript iframe embed method creates the
+    iframe and appends it to the DOM. Please refer to the
+    <a href="https://developers.google.com/youtube/iframe_api_reference">official YouTube API Reference</a> for more
+    information.
   </p>
 </div>
 
 
 Now that I've got a nice player in the background I just make sure that pointer events aren't forwarded to the
-Youtube player (so the Youtube UI dosn't appear when hovering the player) and use the [Youtube Player API](https://developers.google.com/youtube/iframe_api_reference?hl=en#Playback_controls)
-to pause the video when the container is clicked and to implement my own timeline & seeking behaviour.
+YouTube player by overlaying an invisible div that captures all those events (so the YouTube UI dosn't appear when
+hovering the player) and use the [YouTube Player API](https://developers.google.com/youtube/iframe_api_reference?hl=en#Playback_controls)
+to forward any events to pause or resume the video when the container is clicked and to implement my own timeline &
+seeking behaviour.
 
 
 # The scribbles
 
-  <div class="side-by-side">
-    <div class="side">
-      <p>
-        There are two problems to solve regarding the scribbles:<br>
-        1) position them properly and 2) make them appear at the right time.
-        </ol>
-      </p>
-      <p>
-        <img style="margin: 0 auto;" src="/images/posts/flashlights-example.jpg">
-      </p>
-    </div>
-    <div class="side">
-      <p>
-        Lorem blabla
-      </p>
-    </div>
+<div class="side-by-side">
+  <div class="side">
+    <p>
+      There are two problems to solve regarding the scribbles:<br>
+      1) make them appear at the right time and 2) position them properly.
+    </p>
   </div>
+  <div class="side">
+    <p>
+      <img style="margin: 0 auto;" src="/images/posts/flashlights-example.jpg">
+    </p>
+  </div>
+</div>
+  
+<p>
+  To make them appear at the right tame, I make use of YouTubes JavaScript API. In the <code>onStateChange</code>
+  event, I check whether <code>event.data == YT.PlayerState.PLAYING</code> and if so, I start periodic timer
+  with <code>setInterval(updateTime, intervalDelay)</code>, with <code>updateTime</code> being the periodically
+  invoked callback, and <code>intervalDelay</code> the time between each interval (I chose 25ms).
+</p>
+
+<div class="side-by-side">
+  <div class="side">
+    <p>
+      Inside the <code>updateTime</code> I use the <code>player.getCurrentTime()</code> function to get the time of the video. Unfortunately, the
+      time returned by this function is not very precise (if queried in a 25ms interval, you will get the same time multiple
+      times), so I need to adjust the time accordingly to make sure that the scribbles appear at exactly at the time that I
+      want. The easiest way to address this issue, is by simply adding 25ms to the last time retrieved, as long as the time
+      returned by <code>getCurrentTime()</code> is the same.
+    </p>
+  </div>
+  <div class="side">
+{% highlight js %}
+var intervalDelay = 25; // in ms
+
+// All in seconds
+var lastTime = -1, exactTime = 0;
+
+// Called every 25ms
+function updateTime() {
+  var currentTime = player.getCurrentTime();
+  if (currentTime != lastCurrentTime) {
+    // The first time, or every time we get a
+    // new currentTime
+    lastTime = exactTime = currentTime;
+  }
+  else {
+    // Since we got the same time again, but
+    // know that we call this function every
+    // 25ms, we just add it.
+    exactTime += intervalDelay / 1000;
+  }
+  highlight(exactTime);
+}
+{% endhighlight %}
+  </div>
+</div>
+   
+The mundane part now, is to get all the timings of the scribbles. I did that by loading the video into a video editing
+software, and write down all the time codes. I then markup the individual phrases that I want to add scribbles like
+that: `<span data-time="33.92">vultures</span>`. Inside the `highlight()` function, I then see if one of the phrases
+should be highlighted based on that `date-time` attribute, and if so, I add the `.highlight` class which makes the
+scribble appear and fade out.
+
+But how do I add the scribble, and how are the scribbles positioned? Well... that actually took me some time to get right.
+I wanted to find a solution that met all the following criteria:
+
+- I don't want individual images to be loaded due to http overhead, but one spritemap
+- the spritemap should be generated automatically – I don't want to copy paste images all day
+- the scribbles should be perfectly positioned – accounting for different font renderings (so just using one
+  big image over the whole paragraph and positioning the scribbles is a no-no)
+- I don't want to fiddle with coordinates and painstakingly write down pixels for each scribble
+- This one is basically a summary of the others: I want to be able to iterate quickly. So when I want to make changes to
+  the scribbles, I shouldn't need to change coordinates in my source code or have a manual process where I need to copy
+  some images around.
+
+To solve all those problems, I decided to go following route:
+ 
+- Every highlights position is measured from the center of a `<span>` of a single word or phrase. So let's say I want to
+  highlight the word «Flashlight», then I will add the scribble as an additional `<span>` inside this word, positioning
+  it at the center.  
+- This allows me to create the scribbles inside Photoshop in a way
+  ![](/images/posts/flashlights-scribble-screenshot.png)
+
+

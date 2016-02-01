@@ -909,6 +909,9 @@ body > footer p {
   margin-bottom: 2em;
   zoom: 1;
 }
+#post .content .side-by-side .side > .highlight:first-child {
+  padding-top: 0;
+}
 #post .content .side-by-side .side > p:first-child {
   margin-top: 0;
 }
