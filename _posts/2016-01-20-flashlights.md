@@ -27,10 +27,13 @@ lyrics shake or disappear at appropriate times.
 If you like the song, you can buy the whole EP on [Google Play](https://play.google.com/store/music/album/Meno_Flashlights?id=Bvkm477idlkjw6joacowb7aa4he),
 [Amazon Music](https://www.amazon.com/gp/product/B01AP3ETYO?ie=UTF8&keywords=meno%20flashlights&qid=1454067033&ref_=sr_1_3&s=dmusic&sr=8-3)
 or [iTunes](https://itunes.apple.com/at/album/flashlights-ep/id1075875101?l=en) –
-or stream it on [Spotify](https://open.spotify.com/album/14y7LCmuPCBAZqrvc6uqkd). `</self-promotion>`
+or stream it on [Spotify](https://open.spotify.com/album/14y7LCmuPCBAZqrvc6uqkd):
+ 
+<div>
+  <iframe style="display: block; width: 300px; margin: 0 auto;" src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A14y7LCmuPCBAZqrvc6uqkd&theme=white&view=coverart" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+</div>
 
-There is nothing incredibly complicated going on there, but a few things weren't that obvious when I created
-the page.
+`</self-promotion>`
 
 
 <div class="dark the-player backdrop">
@@ -181,11 +184,15 @@ To solve all those problems, I decided to go following route:
   [optimized spritemap](https://github.com/enyo/meno.fm/blob/gh-pages/flashlights/images/highlights/verse1.png) and
   generates a [json file](https://github.com/enyo/meno.fm/blob/gh-pages/_includes/flashlights/verse1.json) with the
   necessary information to properly position each scribble at the center (depending on how much white space has been
-  removed).
-- Finally, when I parse all the times for the individual words, I use the generated JSON to properly place the scribbles
+  removed). You might be thinking that this step is unnecessary, because empty space in a png should be compressed
+  properly, but unfortunately, even after png optimization, there is a significant different in size. It will also take
+  much less space in memory in the browser.
+- I then use [optipng](http://optipng.sourceforge.net/) on the spritemap to ensure that it is the smallest possible size
+- Finally, inside my browser script, I use the generated JSON to properly position all scribbles.
   
+
 # Final words
 
-1. All the source code is here: https://github.com/enyo/meno.fm
+The whole page is open source, so feel free to go through it if you want more information: [github.com/enyo/meno.fm](https://github.com/enyo/meno.fm)
 
-
+I hope that this post has been useful to you and that it will help you create something great.
