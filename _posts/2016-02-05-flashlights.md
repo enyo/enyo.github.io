@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "FLASH<wbr>LIGHTS"
-date:   2016-02-05 21:40:00
+date:   2016-02-05 18:40:00
 stylesheet: /css/flashlights.css
 categories: web programming
 cover_image: dark-alley
