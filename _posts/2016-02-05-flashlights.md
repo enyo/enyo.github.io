@@ -5,7 +5,7 @@ date:   2016-02-05 18:40:00
 stylesheet: /css/flashlights.css
 categories: web programming music design
 cover_image: dark-alley
-invisible: true
+invisible: false
 ---
 
 I just released my Solo EP «Flashlights» and built a page to promote its first single of the same title. Since the
