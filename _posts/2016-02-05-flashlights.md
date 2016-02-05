@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "FLASH<wbr>LIGHTS"
-date:   2000-01-20 14:28:00
+date:   2015-02-05 21:40:00
 stylesheet: /css/flashlights.css
 categories: web programming
 cover_image: dark-alley
@@ -10,7 +10,7 @@ invisible: true
 
 I just released my Solo EP «Flashlights» and built a page to promote its first single of the same title. Since the
 page itself is a bit more than a collection of links, and interacts with the video playing in the background, I
-figured that some might be interested in gaining some insight into the build process.
+figured that it might be of interest to some people to gain insight into the build process.
 
 So first things first: go to [meno.fm/flashlights](http://www.meno.fm/flashlights/) and watch the video to see the
 effects in action. Unfortunately it is built to be viewed for Desktop, so if you are on mobile you will only be able
