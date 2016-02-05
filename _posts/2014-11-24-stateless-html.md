@@ -3,7 +3,7 @@ layout: post
 title:  "Stop writing stateful HTML"
 date:   2014-11-24 14:28:00
 stylesheet: /css/stateless-html.css
-categories: web programming
+categories: web programming html
 cover_image: rock
 ---
 

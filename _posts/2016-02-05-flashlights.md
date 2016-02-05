@@ -3,7 +3,7 @@ layout: post
 title:  "FLASH<wbr>LIGHTS"
 date:   2016-02-05 18:40:00
 stylesheet: /css/flashlights.css
-categories: web programming
+categories: web programming music design
 cover_image: dark-alley
 invisible: true
 ---
