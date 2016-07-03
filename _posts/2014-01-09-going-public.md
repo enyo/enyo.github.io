@@ -17,6 +17,15 @@ source projects which motivated me to start working on a real online presence.
 
 In this first post, I'll briefly talk about how I built the website.
 
+**Edit:** A lot of time has passed since I wrote this post (more than two years)
+and I wanted to point out that, although I still love working with Jekyll,
+Dart and I still use Disqus wherever needed, I wouldn't use Stylus anymore.
+Compared with [Sass](http://sass-lang.com), Stylus simply doesn't have the
+same user base, and I like to choose the technology that is more common when
+the feature set is nearly identical. I also am writing more and more vanilla
+CSS (or use very limited preprocessors) since CSS prefixes are becoming a thing
+of the past, and the browser support for most features I use is pretty solid.
+
 
 Tech<wbr>nology
 ===============
