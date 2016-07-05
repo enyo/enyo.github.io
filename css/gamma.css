@@ -1,0 +1,17 @@
+.image-comparison {
+  background: #ff0069 !important;
+}
+.image-comparison .side {
+  text-align: center;
+}
+.image-comparison img {
+  margin: 0 auto;
+}
+.image-comparison .good img {
+  width: 330px;
+  height: 160px;
+}
+.image-comparison .bad img {
+  width: 297px;
+  height: 159px;
+}
