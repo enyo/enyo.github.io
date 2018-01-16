@@ -1187,3 +1187,20 @@ body > footer p {
     font-size: 22px;
   }
 }
+.medium-banner {
+  border: 3px solid #f34a53;
+  color: #f34a53;
+  font-weight: 400;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.medium-banner a {
+  display: block;
+  padding: 1.5rem 3rem;
+  text-decoration: none;
+}
+.medium-banner a:hover {
+  text-decoration: underline;
+}
