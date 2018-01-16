@@ -10,5 +10,5 @@ Four years ago I launched my own blog colorglare.com built with Jekyll and hoste
 I have written four posts in those years, and I think that moving to Medium will help me change that.
 
 <section><div class="medium-banner">
-  <a href="https://medium.com/@menoyes/why-im-switching-to-medium-6c7640a666d8">Continue reading on medium.com</a>
+  <a href="https://medium.com/@yesmeno/why-im-switching-to-medium-6c7640a666d8">Continue reading on medium.com</a>
 </div><section>
